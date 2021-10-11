@@ -182,6 +182,20 @@ nav ul li a {
   margin: 0 10px;
 }
 
+.login-btn {
+  width: 50%;
+  border: none;
+  background-color: rgb(185, 142, 81);
+  color: white;
+  font-size: 28px;
+  padding: 2px;
+  margin: 30px auto 0 auto;
+}
+
+.login-btn:hover {
+  background-color: rgb(101, 80, 70);
+}
+
 /* fooet區域 */
 footer {
   background-color: rgb(101, 80, 70);
