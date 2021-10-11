@@ -1,0 +1,104 @@
+body {
+  background-image: url(/picture/背景.gif);
+  font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
+}
+
+/* header區域 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(102, 142, 104);
+  padding: 10px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 30%;
+}
+.logo a img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: relative;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+}
+
+nav ul li {
+  width: 25%;
+  text-align: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 36px;
+}
+
+.nav-icon a i {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 40px;
+  top: -50px;
+}
+.nav-icon a {
+  margin-left: 30px;
+}
+
+/* 開頭背景圖 */
+.head-banner {
+  width: 100%;
+}
+
+.head-banner img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+table {
+  width: 100%;
+  border: 1px solid rgb(102, 142, 104);
+  background-color: white;
+  text-align: center;
+}
+
+tr {
+  width: 100%;
+  display: flex;
+  flex: 1 1 60px;
+}
+
+th {
+  background-color: rgb(102, 142, 104);
+}
+
+td {
+  width: 50px;
+  border: 1px solid rgb(102, 142, 104);
+  vertical-align: middle;
+}
+
+td img {
+  width: 100%;
+  vertical-align: middle;
+}

@@ -1,0 +1,494 @@
+body {
+  background-image: url(/picture/背景.gif);
+  font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
+}
+/* header區域 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(102, 142, 104);
+  padding: 10px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 30%;
+}
+.logo a img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: relative;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+}
+
+nav ul li {
+  width: 25%;
+  text-align: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 36px;
+}
+
+.nav-icon a i {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 40px;
+  top: -50px;
+}
+.nav-icon a {
+  margin-left: 30px;
+}
+
+/* 開頭背景圖 */
+.head-banner {
+  width: 100%;
+}
+
+.head-banner img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* 商品內容主要頁面 */
+.breadcrumb {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.breadcrumb ol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.breadcrumb li {
+  padding: 0 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breadcrumb li + li::before {
+  content: ">";
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin-right: 10px;
+}
+
+.breadcrumb li:last-child a {
+  color: rgb(185, 142, 81);
+}
+
+.product-content-page {
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
+}
+
+.product-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.product-pic {
+  width: calc(50% - 80px);
+  padding: 0 40px;
+}
+
+.main-pic {
+  width: calc(100% - 4px);
+  border: 2px solid rgb(185, 142, 81);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.main-pic img {
+  width: 100%;
+  border-radius: 10px;
+  vertical-align: bottom;
+}
+
+.pic-switch {
+  display: flex;
+  width: 100%;
+}
+
+.switch-pic {
+  width: calc(25% - 24px);
+  margin-right: 10px;
+  border: 2px solid rgb(185, 142, 81);
+  border-radius: 10px;
+}
+
+.switch-pic img {
+  width: 100%;
+  border-radius: 10px;
+  vertical-align: bottom;
+}
+
+.product-info {
+  width: calc(50% - 80px);
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(185, 142, 81);
+  margin-bottom: 30px;
+}
+
+button.nutrition {
+  font-size: 20px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  color: rgb(101, 80, 70);
+  background-color: white;
+  border: 1px solid rgb(101, 80, 70);
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+button.nutrition:hover {
+  background-color: rgb(101, 80, 70);
+  color: white;
+}
+
+.product-detail p {
+  font-size: 24px;
+  color: rgb(101, 80, 70);
+  margin-bottom: 20px;
+}
+
+p.price {
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(185, 142, 81);
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.buy-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.counter p {
+  font-size: 24px;
+  color: rgb(101, 80, 70);
+  margin-right: 20px;
+}
+
+.counter-bar {
+  display: flex;
+  align-items: center;
+}
+
+.counter-bar button {
+  font-size: 24px;
+  padding: 0 15px;
+  border: none;
+  vertical-align: middle;
+  background-color: rgb(185, 142, 81);
+  color: rgb(101, 80, 70);
+  cursor: pointer;
+}
+
+.counter-bar button:hover {
+  background-color: rgb(101, 80, 70);
+  color: white;
+}
+
+button.minus-btn {
+  border-radius: 8px 0 0 8px;
+}
+
+button.plus-btn {
+  border-radius: 0 8px 8px 0;
+}
+
+.counter-bar input {
+  width: 60px;
+  text-align: center;
+  font-size: 24px;
+  border: none;
+  background-color: rgb(240, 235, 234);
+  color: rgb(101, 80, 70);
+  outline: none;
+}
+
+button.shopcart {
+  width: 100%;
+  font-size: 24px;
+  background-color: rgb(185, 142, 81);
+  border: none;
+  color: white;
+  padding: 1px 0;
+  cursor: pointer;
+}
+
+button.shopcart:hover {
+  background-color: rgb(101, 80, 70);
+}
+
+/* 相關商品 */
+.relative {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.relative > p {
+  color: rgb(185, 142, 81);
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid rgb(185, 142, 81);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item {
+  border: 1px solid rgb(185, 142, 81);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  cursor: pointer;
+  transition: transform 0.5s;
+  position: relative;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-item:hover .product-btn {
+  opacity: 1;
+}
+
+.hot-tag {
+  width: 70px;
+  background-color: rgb(185, 142, 81);
+  padding: 10px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  z-index: 2;
+}
+
+.hot-tag .angle {
+  height: 0;
+  width: 0;
+  border-top: 9px solid rgb(101, 80, 70);
+  border-left: 9px solid transparent;
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+}
+
+.product-item .pic {
+  width: 100%;
+  position: relative;
+}
+
+.product-item .pic img {
+  width: 100%;
+}
+
+.product-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.detail {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.detail:hover {
+  border-color: rgb(185, 142, 81);
+  background-color: rgb(185, 142, 81);
+}
+
+.detail:hover i {
+  color: white;
+}
+
+.detail a i {
+  font-size: 30px;
+  color: white;
+}
+
+.shopping-cart {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.shopping-cart:hover {
+  border-color: rgb(185, 142, 81);
+  background-color: rgb(185, 142, 81);
+}
+
+.shopping-cart:hover i {
+  color: white;
+}
+
+.shopping-cart a i {
+  font-size: 30px;
+  color: white;
+}
+
+.product-item .txt {
+  background-color: rgb(240, 235, 234);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-item .txt h3 {
+  color: rgb(185, 142, 81);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.product-item .txt .price {
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  text-align: end;
+}
+
+/* fooet區域 */
+footer {
+  background-color: rgb(101, 80, 70);
+}
+
+.footer-list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.footer-list ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-list ul li {
+  width: 25%;
+  text-align: center;
+}
+
+.footer-list ul li a {
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  /* text-align: center; */
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 40%;
+}
+
+.footer-info {
+  margin-left: 30px;
+}
+
+.footer-info .address,
+.footer-info .service-time,
+.footer-info .tel,
+.footer-info .email {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-info .email {
+  display: flex;
+  align-items: center;
+}
+
+.footer-info .info i {
+  color: white;
+}
+
+.footer-info .email a {
+  text-decoration: none;
+  color: white;
+  margin-left: 6px;
+}
+
+.copyright {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.2;
+  border-top: 1px solid black;
+  padding: 5px;
+}

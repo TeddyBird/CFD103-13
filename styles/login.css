@@ -1,0 +1,262 @@
+/* * {
+  outline: 1px solid red;
+} */
+
+body {
+  background-image: url(/picture/背景.gif);
+  font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
+}
+
+/* header區域 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(102, 142, 104);
+  padding: 10px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 30%;
+}
+.logo a img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: relative;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+}
+
+nav ul li {
+  width: 25%;
+  text-align: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 36px;
+}
+
+.nav-icon a i {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 40px;
+  top: -50px;
+}
+.nav-icon a {
+  margin-left: 30px;
+}
+
+.login-page {
+  background-image: url(../picture/background/login.png);
+  background-size: cover;
+}
+
+.wrap {
+  max-width: 1200px;
+  height: 60vh;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login-slogan {
+  width: 60%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-slogan p {
+  font-size: 2vmin;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(102, 142, 104);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.login-slogan p::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid rgb(102, 142, 104);
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid transparent;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.people {
+  width: 250px;
+}
+
+.people img {
+  width: 100%;
+}
+
+.login-area {
+  width: calc(40% - 60px);
+  padding: 0 30px;
+  background-color: rgb(240, 235, 234);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-area h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(185, 142, 81);
+  margin-bottom: 40px;
+}
+
+.login-group {
+  margin-bottom: 10px;
+}
+
+.login-group label {
+  font-size: 24px;
+  color: rgb(101, 80, 70);
+}
+
+.login-group input {
+  width: calc(100% - 10px);
+  font-size: 28px;
+  padding: 0 5px;
+  border: none;
+  border-bottom: 1px solid rgb(101, 80, 70);
+  background-color: rgb(240, 235, 234);
+  outline: none;
+}
+
+.other-box {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.other-box a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+}
+
+.other-box a:hover {
+  color: rgb(185, 142, 81);
+}
+
+.line {
+  width: 0;
+  height: 16px;
+  border: 1px solid rgb(101, 80, 70);
+  margin: 0 10px;
+}
+
+/* fooet區域 */
+footer {
+  background-color: rgb(101, 80, 70);
+}
+
+.footer-list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.footer-list ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-list ul li {
+  width: 25%;
+  text-align: center;
+}
+
+.footer-list ul li a {
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  /* text-align: center; */
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 40%;
+}
+
+.footer-info {
+  margin-left: 30px;
+}
+
+.footer-info .address,
+.footer-info .service-time,
+.footer-info .tel,
+.footer-info .email {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-info .email {
+  display: flex;
+  align-items: center;
+}
+
+.footer-info .info i {
+  color: white;
+}
+
+.footer-info .email a {
+  text-decoration: none;
+  color: white;
+  margin-left: 6px;
+}
+
+.copyright {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.2;
+  border-top: 1px solid black;
+  padding: 5px;
+}
