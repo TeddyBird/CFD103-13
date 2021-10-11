@@ -208,6 +208,7 @@ nav ul.first-nav > li:hover .second-nav {
 
 .other-box a {
   text-decoration: none;
+  vertical-align: baseline;
   color: rgb(101, 80, 70);
 }
 
@@ -218,7 +219,7 @@ nav ul.first-nav > li:hover .second-nav {
 .line {
   width: 0;
   height: 16px;
-  border: 1px solid rgb(101, 80, 70);
+  border-right: 1px solid rgb(101, 80, 70);
   margin: 0 10px;
 }
 

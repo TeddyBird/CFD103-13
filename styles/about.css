@@ -206,6 +206,12 @@ h2 {
   left: -100px;
   bottom: -150px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s;
+}
+
+.concept .txt:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .concept .txt p {
@@ -232,7 +238,7 @@ h2 {
 .Kraftpaper {
   width: 100%;
   background-image: url(../picture/background/牛皮紙.jpg);
-  position: relative;
+  /* position: relative; */
 }
 
 .feature-group {
