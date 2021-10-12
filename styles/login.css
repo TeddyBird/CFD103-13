@@ -2,7 +2,7 @@
   outline: 1px solid red;
 } */
 body {
-  background-image: url(/picture/背景.gif);
+  background-image: url(../picture/background.gif);
   font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
 }
 /* header區域 */
