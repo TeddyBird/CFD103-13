@@ -1,0 +1,102 @@
+body {
+  background-image: url(../picture/background.gif);
+  font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
+}
+/* header區域 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(102, 142, 104);
+  padding: 10px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 30%;
+}
+.logo a img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: relative;
+}
+
+nav ul.first-nav {
+  width: 100%;
+  display: flex;
+  margin-bottom: -10px;
+}
+
+nav ul.first-nav > li {
+  width: 25%;
+  text-align: center;
+  position: relative;
+}
+
+nav ul.first-nav > li > a {
+  width: 100%;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 32px;
+}
+
+nav li:hover > a {
+  background-color: rgb(185, 142, 81);
+}
+
+nav ul.first-nav > li:hover .second-nav {
+  display: block;
+}
+
+.second-nav {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  display: none;
+  width: 100%;
+  background-color: rgb(102, 142, 104);
+}
+
+.second-nav li {
+  width: 100%;
+}
+
+.second-nav li a {
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 32px;
+  color: white;
+}
+
+.nav-icon a i {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 50px;
+  top: -40px;
+}
+.nav-icon a {
+  margin-left: 30px;
+}
+
+.nav-icon a:hover i {
+  color: rgb(185, 142, 81);
+}
