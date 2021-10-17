@@ -159,8 +159,8 @@ button.nutrition:hover {
   padding: 0 15px;
   border: none;
   vertical-align: middle;
-  background-color: rgb(185, 142, 81);
-  color: rgb(101, 80, 70);
+  background-color: rgb(102, 142, 104);
+  color: white;
   cursor: pointer;
 }
 
@@ -190,7 +190,7 @@ button.plus-btn {
 button.shopcart {
   width: 50%;
   font-size: 24px;
-  background-color: rgb(185, 142, 81);
+  background-color: rgb(102, 142, 104);
   border: none;
   color: white;
   padding: 1px 0;

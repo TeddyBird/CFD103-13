@@ -3,7 +3,13 @@ body {
   font-family: Noto Sans Tc Regular, Arial, sans-serif, serif;
 }
 /* header區域 */
+
+#menu_control {
+  position: absolute;
+}
+
 header {
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +22,7 @@ header {
 }
 
 .logo {
-  width: 400px;
+  width: 350px;
 }
 
 .logo a img {
@@ -24,8 +30,11 @@ header {
   vertical-align: bottom;
 }
 
+.menu_btn {
+  display: none;
+}
+
 nav {
-  /* width: 50%; */
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
@@ -47,7 +56,7 @@ nav ul.first-nav > li {
 }
 
 nav ul.first-nav > li > a {
-  padding: 10px 20px;
+  padding: 10px;
   display: inline-block;
   text-decoration: none;
   color: white;
@@ -60,6 +69,10 @@ nav li:hover > a {
 
 nav ul.first-nav > li:hover .second-nav {
   display: block;
+}
+
+#check_list {
+  display: none;
 }
 
 .second-nav {
@@ -88,9 +101,6 @@ nav ul.first-nav > li:hover .second-nav {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  /* position: absolute;
-  right: 50px;
-  top: -40px; */
 }
 
 .nav-icon a {
@@ -106,4 +116,144 @@ nav ul.first-nav > li:hover .second-nav {
 
 .nav-icon a:hover i {
   color: rgb(185, 142, 81);
+}
+
+@media screen and (max-width: 1201px) {
+  #menu_control:checked ~ header nav {
+    left: 0;
+  }
+
+  .menu_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(185, 142, 81);
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 50px;
+  }
+
+  .menu_btn span {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    display: block;
+    overflow: hidden;
+  }
+
+  .menu_btn::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 40px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    margin: auto;
+    box-shadow: 0px 13px 0px white, 0px -13px 0px white;
+  }
+
+  nav {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: rgb(57, 87, 59);
+    position: absolute;
+    top: 120px;
+    left: -100%;
+    transition: all 0.5s;
+  }
+
+  nav ul.first-nav {
+    width: 100%;
+    display: block;
+  }
+
+  nav ul.first-nav > li {
+    padding: 10px;
+  }
+
+  nav ul.first-nav > li > a {
+    position: relative;
+  }
+
+  nav li:hover > a {
+    background-color: rgb(57, 87, 59);
+  }
+
+  nav ul.first-nav > li:hover .second-nav {
+    display: none;
+  }
+
+  #check_list:checked ~ .second-nav {
+    display: block;
+  }
+
+  #check_list:checked ~ .list_btn::after {
+    display: none;
+  }
+
+  .list_btn {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    border: 1px solid white;
+    position: relative;
+  }
+
+  .list_btn::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    background-color: white;
+    top: 10px;
+    left: 3px;
+  }
+  .list_btn::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 15px;
+    background-color: white;
+    top: 3px;
+    left: 10px;
+  }
+
+  .second-nav {
+    position: relative;
+    background-color: rgb(57, 87, 59);
+    display: none;
+  }
+
+  .second-nav li a {
+    font-size: 28px;
+  }
+
+  .nav-icon {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .menu_btn {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(185, 142, 81);
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+  }
+
+  .logo {
+    width: 200px;
+  }
 }

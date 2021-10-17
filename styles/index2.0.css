@@ -2,8 +2,11 @@
   outline: 1px solid red;
 } */
 
+.hot-product h2 {
+}
+
 .hot-product .wrap {
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
   position: relative;
 }
@@ -73,16 +76,17 @@
   display: block;
   text-align: right;
   opacity: 0;
-  transition: all 0.5s 1s;
+  transition: all 1s;
 }
 
 .hot-product .txt:hover > span {
   opacity: 1;
+  transition: all 0.5s 0.3s;
 }
 
 .hot-product .txt1 {
   top: 30%;
-  right: 20px;
+  right: 3%;
 }
 
 .hot-product .txt2 {
@@ -97,7 +101,7 @@
 }
 
 .hot-product .txt1:hover ~ .item1 {
-  transform: translate(30px, -150px);
+  transform: translate(50px, -150px);
   z-index: -1;
 }
 
@@ -107,6 +111,6 @@
 }
 
 .hot-product .txt3:hover ~ .item3 {
-  transform: translate(0, -150px);
+  transform: translate(0, -160px);
   z-index: -1;
 }

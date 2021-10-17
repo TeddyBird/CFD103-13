@@ -14,17 +14,23 @@
 </head>
 <body>
     <!-- header區域 -->
+    <input type="checkbox" id="menu_control">
     <header>
         <h1 class="logo">
             <a href="./index.html">
                 <img src="./picture/logo/logo橫.png" alt="Bread&Butter">
             </a>
         </h1>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
         <nav>
             <ul class="first-nav">
                 <li><a href="./news.html">最新消息</a></li>
                 <li>
-                    <a href="./products.html">商品專區</a>
+                    <a href="./products.html" class="checkable">商品專區</a>
+                    <input type="checkbox" id="check_list">
+                    <label for="check_list" class="list_btn"></label>
                     <ul class="second-nav">
                         <li><a href="./products.html">麵包系列</a></li>
                         <li><a href="./products.html">蛋糕系列</a></li>

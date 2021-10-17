@@ -32,8 +32,8 @@
   margin-top: 60px;
   text-decoration: none;
   color: white;
-  background-color: rgb(102, 142, 104);
-  font-size: 3.5vmin;
+  background-color: rgb(185, 142, 81);
+  font-size: 28px;
   padding: 10px 40px;
   border: none;
   border-radius: 10px;
@@ -57,7 +57,7 @@
 .news h2 {
   font-size: 48px;
   font-weight: 700;
-  color: rgb(185, 142, 81);
+  color: rgb(102, 142, 104);
   position: absolute;
   top: -24px;
 }
@@ -107,7 +107,7 @@
 .news-txt .more {
   align-self: center;
   border: none;
-  background-color: rgb(102, 142, 104);
+  background-color: rgb(185, 142, 81);
   color: white;
   text-decoration: none;
   font-size: 24px;
@@ -284,7 +284,7 @@ a.product-tab {
 .about h2 {
   font-size: 48px;
   font-weight: 700;
-  color: rgb(185, 142, 81);
+  color: rgb(102, 142, 104);
   position: absolute;
   top: -24px;
 }
@@ -317,7 +317,7 @@ a.product-tab {
 .about-txt a.more {
   align-self: center;
   border: none;
-  background-color: rgb(102, 142, 104);
+  background-color: rgb(185, 142, 81);
   color: white;
   text-decoration: none;
   font-size: 24px;
