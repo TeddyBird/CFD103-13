@@ -1,11 +1,12 @@
 /* 開頭背景圖 */
 .head-banner {
   width: 100%;
+  height: 30vh;
 }
 
 .head-banner img {
   width: 100%;
-  height: 30vh;
+  height: 100%;
   object-fit: cover;
   vertical-align: middle;
 }
@@ -17,18 +18,21 @@
   position: relative;
 }
 
-h2 {
+.contact-page h2 {
   background-color: rgb(101, 80, 70);
   color: white;
   display: inline-block;
   font-size: 48px;
-  padding: 20px 50px;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  padding: 10px 50px 20px;
   position: absolute;
   top: -44px;
 }
+
 .breadcrumb {
   width: 100%;
-  padding: 20px;
+  padding: 50px 0;
   box-sizing: border-box;
 }
 
@@ -73,7 +77,8 @@ h2 {
   text-align: center;
   font-size: 20px;
   color: rgb(101, 80, 70);
-  margin: 60px;
+  margin: 60px 50px;
+  line-height: 1.5;
 }
 
 .wrap {
@@ -115,7 +120,6 @@ h2 {
   border-bottom: 40px solid white;
   bottom: 0;
   right: 0;
-  box-shadow: -5px -5px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact-info > .tel,
@@ -127,9 +131,9 @@ h2 {
   padding: 0 30px;
 }
 
-.contact-info > .email a {
-  text-decoration: none;
-  color: white;
+.contact-info .tel span,
+.contact-info .email span {
+  word-break: break-all;
 }
 
 .contact-form {
@@ -145,7 +149,7 @@ h2 {
   left: -2px;
 }
 
-form {
+.contact-form form {
   width: calc(100% - 40px);
   position: relative;
   padding: 20px;
@@ -153,18 +157,18 @@ form {
   flex-direction: column;
 }
 
-input-group {
+.contact-form input-group {
   width: 100%;
 }
 
-label {
+.contact-form label {
   font-size: 24px;
   color: rgb(101, 80, 70);
   display: inline-block;
   margin: 10px 0;
 }
 
-input {
+.contact-form input {
   width: calc(100% - 20px);
   font-size: 24px;
   padding: 8px;
@@ -173,7 +177,7 @@ input {
   border: 1px solid rgb(101, 80, 70);
 }
 
-textarea {
+.contact-form textarea {
   width: calc(100% - 20px);
   resize: none;
   padding: 8px;
@@ -192,10 +196,97 @@ textarea {
   border: none;
   border-radius: 10px;
   margin-top: 30px;
-  padding: 10px 40px;
+  padding: 5px 30px;
   cursor: pointer;
 }
 
 .contact-form button:hover {
   background-color: rgb(101, 80, 70);
+}
+
+@media screen and (max-width: 950px) {
+  .contact-info > .tel,
+  .contact-info > .email,
+  .contact-info > .address {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .contact-page h2 {
+    background-color: rgb(101, 80, 70);
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    font-family: "Klee One", cursive;
+    font-weight: 600;
+    padding: 10px 50px 20px;
+    position: absolute;
+    top: -38px;
+  }
+
+  .contact-info {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+
+  .contact-info::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 20px solid rgb(90, 68, 38);
+    border-left: 20px solid rgb(90, 68, 38);
+    border-right: 20px solid white;
+    border-bottom: 20px solid white;
+    bottom: 0;
+    right: 0;
+  }
+
+  .contact-info > .tel,
+  .contact-info > .email,
+  .contact-info > .address {
+    font-size: 20px;
+  }
+
+  .contact-info .address {
+    margin-top: 100px;
+  }
+
+  .contact-info .email {
+    margin-bottom: 100px;
+  }
+
+  .contact-info .email span {
+    white-space: normal;
+  }
+
+  .contact-form {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    position: relative;
+  }
+
+  .contact-form::before {
+    display: none;
+  }
+
+  .contact-form label {
+    font-size: 20px;
+  }
+
+  .contact-form button {
+    font-size: 20px;
+  }
+
+  .contact-form button:hover {
+    background-color: rgb(102, 142, 104);
+  }
 }

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* slogan-banner區 */
 .banner {
   margin-bottom: 100px;
@@ -22,27 +26,50 @@
 }
 
 .slogan p {
+  font-family: "Klee One", cursive;
+  text-align: center;
   color: white;
-  font-size: 5vmin;
+  font-size: 48px;
   line-height: 1.2;
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 1);
 }
 
 .slogan a.btn {
   margin-top: 60px;
   text-decoration: none;
   color: white;
-  background-color: rgb(185, 142, 81);
+  background-color: rgb(102, 142, 104);
   font-size: 28px;
   padding: 10px 40px;
   border: none;
   border-radius: 10px;
   text-decoration: none;
   color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .slogan a.btn:hover {
   background-color: rgb(101, 80, 70);
+}
+
+@media screen and (max-width: 1024px) {
+  .slogan p {
+    font-size: 40px;
+  }
+
+  .slogan a.btn {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slogan p {
+    font-size: 28px;
+  }
+  .slogan a.btn {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
 }
 
 /* 最新消息 */
@@ -55,23 +82,29 @@
 }
 
 .news h2 {
+  font-family: "Klee One", cursive;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
   color: rgb(102, 142, 104);
   position: absolute;
-  top: -24px;
+  top: -34px;
 }
 
-.news .pic {
+.newspic-slider {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-.news .pic img {
+.news-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
   vertical-align: bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
 }
 
 .news-txt {
@@ -83,13 +116,14 @@
 
 .news-title {
   display: flex;
+  align-items: center;
   padding: 30px 0;
   border-bottom: 1px dashed rgb(101, 80, 70);
 }
 
 .news-title time {
   color: rgb(101, 80, 70);
-  font-size: 24px;
+  font-size: 20px;
   padding-right: 20px;
 }
 
@@ -98,183 +132,440 @@
   text-decoration: none;
   font-size: 24px;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.news-title h3 a:hover {
-  border-bottom: 2px solid rgb(185, 142, 81);
+.news-title i {
+  font-size: 20px;
+  color: rgb(240, 156, 56);
 }
 
 .news-txt .more {
   align-self: center;
   border: none;
-  background-color: rgb(185, 142, 81);
+  background-color: rgb(102, 142, 104);
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px 40px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .newspic-slider {
+    height: 350px;
+  }
+
+  .news-txt .more {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .newspic-slider {
+    height: 300px;
+  }
 }
 
 /* 熱銷商品 */
-.hot-product {
-  margin-bottom: 80px;
-}
-
 .hot-product h2 {
-  color: rgb(185, 142, 81);
+  font-family: "Klee One", cursive;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
+  color: rgb(102, 142, 104);
   text-align: center;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
-div.product-tabs {
+.wrap {
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.basket {
+  display: none;
+}
+
+.basket img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.hot-product-slides {
+  width: 300%;
   display: flex;
-  justify-content: center;
 }
 
-a.product-tab {
-  color: rgb(101, 80, 70);
-  font-size: 24px;
-  margin: 20px;
-  text-decoration: none;
+input[type="radio"] {
+  z-index: 100;
+  display: none;
 }
 
-.product-card {
+.hot-product-group {
   display: flex;
-  flex-direction: column;
+  width: calc(100% - 60px);
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  margin: 0 30px;
+  transition: 0.5s transform ease-in-out;
+  position: relative;
 }
 
-.product-item {
-  border: 1px solid rgb(185, 142, 81);
+.hot-product-slides
+  input[type="radio"]:nth-of-type(1):checked
+  ~ .hot-product-group {
+  transform: translatex(0%);
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(2):checked
+  ~ .hot-product-group {
+  transform: translatex(calc(-100% - 60px));
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(3):checked
+  ~ .hot-product-group {
+  transform: translatex(calc(-200% - 120px));
+}
+
+.navigator {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  width: 100%;
+  z-index: 30;
+  justify-content: space-between;
+  box-sizing: border-box;
+  display: none;
+}
+
+.navigator:nth-of-type(1) {
+  justify-content: flex-end;
+}
+
+.navigator:nth-of-type(3) {
+  justify-content: flex-start;
+}
+
+.navigator i {
+  font-size: 35px;
+  background-color: rgb(185, 142, 81);
+  color: white;
+  padding: 3px;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(1):checked
+  ~ .navigator:nth-of-type(1) {
+  display: flex;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(2):checked
+  ~ .navigator:nth-of-type(2) {
+  display: flex;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(3):checked
+  ~ .navigator:nth-of-type(3) {
+  display: flex;
+}
+
+.hot-product .item {
+  width: 80%;
+  margin: auto;
+}
+
+.hot-product .item img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.hot-product .txt {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  cursor: pointer;
-  transition: transform 0.5s;
-  position: relative;
 }
 
-.product-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.product-item:hover .product-btn {
-  opacity: 1;
-}
-
-.hot-tag {
-  width: 70px;
-  background-color: rgb(240, 156, 56);
-  padding: 10px;
-  text-align: center;
-  color: white;
+.medal {
+  width: 15%;
   position: absolute;
-  top: 5px;
-  left: -10px;
-  z-index: 2;
-}
-
-.hot-tag .angle {
-  height: 0;
-  width: 0;
-  border-top: 9px solid rgb(200, 120, 37);
-  border-left: 9px solid transparent;
-  position: absolute;
+  top: 5%;
   left: 0;
-  bottom: -9px;
 }
 
-.product-item .pic {
+.medal img {
   width: 100%;
-  position: relative;
+  vertical-align: middle;
 }
 
-.product-item .pic img {
-  width: 100%;
-}
-
-.product-btn {
+.hot-product .txt h3 {
+  padding: 10px 0;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
 }
 
-.detail {
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 10px;
+.hot-product .txt h3 a {
+  text-decoration: none;
+  color: rgb(240, 156, 56);
+  font-weight: 600;
+  font-size: 28px;
 }
 
-.detail:hover {
-  border-color: rgb(185, 142, 81);
-  background-color: rgb(185, 142, 81);
-}
-
-.detail:hover i {
-  color: white;
-}
-
-.detail a i {
-  font-size: 30px;
-  color: white;
-}
-
-.shopping-cart {
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 10px;
-}
-
-.shopping-cart:hover {
-  border-color: rgb(185, 142, 81);
-  background-color: rgb(185, 142, 81);
-}
-
-.shopping-cart:hover i {
-  color: white;
-}
-
-.shopping-cart a i {
-  font-size: 30px;
-  color: white;
-}
-
-.product-item .txt {
-  background-color: rgb(240, 235, 234);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.product-item .txt h3 {
+.hot-product .txt h3 i {
   color: rgb(185, 142, 81);
   font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  flex-grow: 1;
+  transform: rotate(-45deg) translate(-10px, 18px);
+  animation: pointer 0.8s infinite alternate;
 }
 
-.product-item .txt .price {
+@keyframes pointer {
+  0% {
+    transform: rotate(-45deg) translate(-10px, 16px);
+  }
+  100% {
+    transform: rotate(-45deg) translate(-10px, 20px);
+  }
+}
+
+.hot-product .txt span {
+  display: block;
   color: rgb(101, 80, 70);
   font-size: 20px;
-  text-align: end;
+  font-weight: 600;
+  text-align: right;
+  padding: 10px 0;
+}
+
+.hot-product .txt p {
+  line-height: 1.4;
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  flex-grow: 1;
+  padding: 10px 0;
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 576px) {
+  .wrap {
+    overflow: visible;
+  }
+
+  .hot-product-slides {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(1):checked
+    ~ .navigator:nth-of-type(1) {
+    display: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(2):checked
+    ~ .navigator:nth-of-type(2) {
+    display: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(3):checked
+    ~ .navigator:nth-of-type(3) {
+    display: none;
+  }
+
+  .hot-product-group {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 60px);
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    margin: 30px;
+    transition: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(1):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(2):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(3):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product .item {
+    width: calc(40% - 30px);
+    margin: 0 30px 0 0;
+  }
+
+  .hot-product .txt {
+    width: 60%;
+  }
+
+  .medal {
+    width: 15%;
+    position: static;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hot-product-slides {
+    flex-direction: row;
+  }
+
+  .hot-product-group {
+    flex-direction: column-reverse;
+    width: calc(100% - 60px);
+    flex-grow: 1;
+    margin: 30px;
+  }
+
+  .hot-product .item {
+    width: 100%;
+    margin: 0;
+  }
+
+  .hot-product .txt {
+    width: 100%;
+  }
+
+  .medal {
+    width: 20%;
+    position: absolute;
+    top: -5%;
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .basket {
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding-top: 600px;
+  }
+
+  .basket img {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .hot-product-slides {
+    width: 100%;
+    display: block;
+  }
+
+  .hot-product-group {
+    width: 100%;
+    position: static;
+    margin: 0;
+    display: block;
+  }
+
+  .medal {
+    width: 15%;
+    position: static;
+  }
+
+  .hot-product .item {
+    width: 30%;
+    position: absolute;
+  }
+
+  .hot-product .item img {
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .hot-product .item1 {
+    bottom: 3%;
+    right: 20%;
+    transition: transform 1s;
+    z-index: -1;
+  }
+
+  .hot-product .item2 {
+    bottom: 4%;
+    left: 25%;
+    z-index: -3;
+    transition: transform 1s;
+  }
+
+  .hot-product .item3 {
+    bottom: 50px;
+    left: 38%;
+    z-index: -2;
+    transition: transform 1s;
+  }
+
+  .hot-product .txt {
+    width: 25%;
+    position: absolute;
+  }
+
+  .hot-product .txt h3 a {
+    font-size: 36px;
+  }
+
+  .hot-product .txt span {
+    font-size: 20px;
+  }
+
+  .hot-product .txt p {
+    font-size: 20px;
+  }
+
+  .hot-product .txt1 {
+    top: 10%;
+    right: 1%;
+  }
+
+  .hot-product .txt2 {
+    top: 13%;
+    left: 1%;
+  }
+
+  .hot-product .txt3 {
+    top: 3%;
+    left: 38%;
+  }
+
+  .hot-product .txt1:hover ~ .item1 {
+    transform: translate(50px, -150px);
+    z-index: -1;
+  }
+
+  .hot-product .txt2:hover ~ .item2 {
+    transform: translate(-40px, -140px);
+    z-index: -1;
+  }
+
+  .hot-product .txt3:hover ~ .item3 {
+    transform: translate(0, -170px);
+    z-index: -1;
+  }
 }
 
 /* 關於我們 */
 .about {
   background-color: rgb(240, 235, 234);
-  margin: 50px 0;
+  margin: 50px 0 0 0;
 }
 
 .about .container {
@@ -282,21 +573,16 @@ a.product-tab {
 }
 
 .about h2 {
+  font-family: "Klee One", cursive;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
   color: rgb(102, 142, 104);
   position: absolute;
-  top: -24px;
+  top: -34px;
 }
 
 .about .row {
   flex-direction: column;
-}
-
-@media screen and (min-width: 768px) {
-  .about .row {
-    flex-direction: row-reverse;
-  }
 }
 
 .about-txt {
@@ -305,22 +591,27 @@ a.product-tab {
   height: 100%;
   text-align: justify;
   justify-content: space-around;
+  position: relative;
+  left: -50%;
+  opacity: 0;
+  transition: all 1s 0.5s;
 }
 
 .about-txt p {
   color: rgb(101, 80, 70);
   font-size: 20px;
   line-height: 2;
+  letter-spacing: 1px;
   margin-bottom: 20px;
 }
 
 .about-txt a.more {
   align-self: center;
   border: none;
-  background-color: rgb(185, 142, 81);
+  background-color: rgb(102, 142, 104);
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px 40px;
   border-radius: 10px;
 }
@@ -329,20 +620,29 @@ a.more:hover {
   background-color: rgb(101, 80, 70);
 }
 
-.about .pic {
+.about-pic {
   width: 100%;
   height: 100%;
+  position: relative;
+  left: -50%;
+  opacity: 0;
+  transition: all 1s;
 }
 
-.about .pic img {
+.about-pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   vertical-align: bottom;
 }
 
-/* 店家資訊 */
+@media screen and (min-width: 768px) {
+  .about .row {
+    flex-direction: row-reverse;
+  }
+}
 
+/* 店家資訊 */
 .shop-name {
   color: rgb(185, 142, 81);
   font-size: 28px;
@@ -353,13 +653,14 @@ a.more:hover {
 .info {
   font-size: 20px;
   color: rgb(101, 80, 70);
+  text-align: center;
 }
 
 .info .address,
 .service-time,
 .tel,
 .email {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .info .tel span {
@@ -426,6 +727,12 @@ td {
   color: rgb(101, 80, 70);
 }
 
+@media screen and (min-width: 768px) {
+  .info {
+    text-align: left;
+  }
+}
+
 /* 地圖 */
 .map iframe {
   width: 100%;
@@ -439,6 +746,7 @@ td {
   position: fixed;
   right: 0px;
   bottom: 200px;
+  cursor: pointer;
 }
 
 .pagetop img {
@@ -459,4 +767,10 @@ img.hover {
 
 .pagetop:hover .hover {
   opacity: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .pagetop {
+    display: none;
+  }
 }

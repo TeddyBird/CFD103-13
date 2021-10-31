@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/index2.0.css">
     <title>Bread&Butter烘焙坊 | 首頁</title>
 </head>
 <body>
@@ -19,11 +22,15 @@
     <header>
         <h1 class="logo">
             <a href="./index.html">
-                <img src="./picture/logo/logo橫.png" alt="Bread&Butter">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
             </a>
         </h1>
+
+        <!-- 漢堡 -->
         <label for="menu_control" class="menu_btn">
-            <span>選單</span>
+            <span></span>
+            <span></span>
+            <span></span>
         </label>
         <nav>
             <ul class="first-nav">
@@ -50,16 +57,16 @@
 
 
     <!-- slogan-banner區 -->
-    <section class="banner" >
+    <div class="banner" >
         <div class="slider">
-            <img src="./picture/banner/banner1.png" alt="banner">
+            <img src="./picture/banner/banner1.jpg" alt="banner">
         </div>
         <div class="slogan">
-            <p>新鮮出爐麵包，</p>
-            <p>每一口都是幸福味道</p>
+            <p>新鮮出爐麵包，<br>
+            每一口都是幸福味道</p>
             <a class="btn" href="./products.html">立刻購買</a>
         </div>
-    </section>
+    </div>
 
     <!-- 最新消息 -->
     <section class="news">
@@ -67,8 +74,10 @@
             <h2>最新消息</h2>
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="pic">
-                        <img src="./picture/news/雙11.png" alt="雙11 ㄒ">
+                    <div class="newspic-slider">
+                        <img  class="news-pic" src="./picture/news/news01.jpg" alt="雙11">
+                        <img class="news-pic" src="./picture/news/news02.jpg" alt="聖誕節">
+                        <img class="news-pic" src="./picture/news/news03.jpg" alt="中秋節">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -76,15 +85,18 @@
                         <div class="news-list">
                             <div class="news-title">
                                 <time datetime="2021-10-23">2021.10.23</time>
-                                <h3><a href="#">雙11光棍節別傷心，當日法棍買一送一</a></h3>
+                                <h3><a href="./news.html">雙11光棍節別傷心，當日法棍買一送一</a></h3>
+                                <i class="fas fa-caret-left"></i>
                             </div>
                             <div class="news-title">
                                 <time datetime="2021-10-16">2021.10.16</time>
-                                <h3><a href="#">聖誕蛋糕預購開始囉!</a></h3>
+                                <h3><a href="./news.html">聖誕蛋糕預購開始囉!</a></h3>
+                                <i class="fas fa-caret-left"></i>
                             </div>
                             <div class="news-title">
                                 <time datetime="2021-10-01">2021.10.01</time>
-                                <h3><a href="#">中秋節本店公休一天~</a></h3>
+                                <h3><a href="./news.html">中秋節本店公休一天~</a></h3>
+                                <i class="fas fa-caret-left"></i>
                             </div>
                         </div>
                         <a class="more" href="./news.html">more</a>
@@ -101,27 +113,82 @@
             <div class="basket">
                 <img src="./picture/hot-product/basket.png" alt="breadbasket">
             </div>
-            <div class="txt1 txt">
-                <h3><a href="#">法國長棍</a></h3>
-                <span>/ NT$100</span>
-            </div>
-            <div class="item1 item">
-                <img src="./picture/hot-product/hot-bread1.png" alt="法國長棍">
-            </div>
-            <div class="txt2 txt">
-                <h3><a href="#">歐式蔓越莓核桃</a></h3>
-                <span>/ NT$120</span>
-            </div>
-            <div class="item2 item">
-                <img src="./picture/hot-product/hot-bread2.png" alt="歐式蔓越莓核桃">
-            </div>
-            <div class="txt3 txt">
-                <h3><a href="#">黑麥鄉村麵包</a></h3>
-                <span>/ NT$85</span>
-            </div>
-            <div class="item3 item">
-                <img src="./picture/hot-product/hot-bread3.png" alt="黑麥鄉村麵包">
-            </div>
+            <ol class="hot-product-slides">
+                <input type="radio" id="control-1" name="control" checked>
+                <input type="radio" id="control-2" name="control">
+                <input type="radio" id="control-3" name="control">
+
+                <div class="navigator slide-1">
+                    <label for="control-2">
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                </div>
+                  
+                <div class="navigator slide-2">
+                    <label for="control-1">
+                        <i class="fas fa-chevron-left"></i>
+                    </label>
+                    <label for="control-3">
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                </div>
+                  
+                <div class="navigator slide-3">
+                    <label for="control-2">
+                        <i class="fas fa-chevron-left"></i>
+                    </label>
+
+                </div>
+                
+                <li class="hot-product-group">
+                    <div class="txt txt3">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal1.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="#">黑麥鄉村麵包</a>
+                            <i class="fas fa-hand-point-up"></i>
+                        </h3>
+                        <span>/ NT$85</span>
+                        <p>精選德國烘烤過的大麥芽粉，具有其特殊香氣與天然深色澤。</p>
+                    </div>
+                    <div class="item item3">
+                        <img src="./picture/hot-product/hot-bread3.png" alt="黑麥鄉村麵包">
+                    </div>
+                </li>
+                <li class="hot-product-group">
+                    <div class="txt txt1">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal2.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="./product-content.html">法國長棍</a>
+                            <i class="fas fa-hand-point-up"></i>
+                        </h3>
+                        <span>/ NT$100</span>
+                        <p>法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。</p>
+                    </div>
+                    <div class="item item1">
+                        <img src="./picture/hot-product/hot-bread1.png" alt="法國長棍">
+                    </div>
+                </li>
+                <li class="hot-product-group">
+                    <div class="txt txt2">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal3.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="#">歐式蔓越莓核桃</a>
+                            <i class="fas fa-hand-point-up"></i>
+                        </h3>
+                        <span>/ NT$120</span>
+                        <p>獨家歐式老麵糰，表皮具韌度、麵心富有嚼勁，麥香混合乾果和堅果酥脆香。</p>
+                    </div>
+                    <div class="item item2">
+                        <img src="./picture/hot-product/hot-bread2.png" alt="歐式蔓越莓核桃">
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -132,8 +199,8 @@
             <h2>關於我們</h2>
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="pic">
-                        <img src="./picture/shop/店家照片.png" alt="Bread&Butter店面
+                    <div class="about-pic">
+                        <img src="./picture/shop/shop.jpg" alt="Bread&Butter店面
                         ">
                     </div>
                 </div>
@@ -150,6 +217,7 @@
 
     <!-- 店家資訊 -->
     <section class="shop-info">
+        <h2 style="text-indent: -10000px; position: absolute;">店家資訊</h2>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -238,22 +306,18 @@
                 </div>
             </div>
         </div>
+        <!-- 地圖 -->
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045422!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1633399311346!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
     </section>
 
-
-    <!-- 回到頁首 -->
+        <!-- 回到頁首 -->
     <div class="pagetop">
-        <a href="#">
-            <img class="nohover" src="./picture/pagetop.png" alt="pagetop">
-            <img  class="hover" src="./picture/pagetop-hover.png" alt="pagetop">
-        </a>
+        <img class="nohover" src="./picture/pagetop.png" alt="pagetop">
+        <img  class="hover" src="./picture/pagetop-hover.png" alt="pagetop">
     </div>
-
-    <!-- 地圖 -->
-    <section class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045422!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1633399311346!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-    </section>
 
     <!-- footer區域 -->
     <footer>
@@ -294,5 +358,67 @@
             <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
         </div>       
     </footer>
+
+
+    
+    <script type="text/javascript">
+    let newsIndex = 0;
+    function carousel() {
+        let newsPics = document.getElementsByClassName("news-pic");
+        let titPointers = document.getElementsByClassName("fa-caret-left");
+        let newsTitles = document.querySelectorAll(".news-title a");
+        for (let i = 0; i < newsPics.length; i++) {
+            newsPics[i].style.opacity = "0";  
+            titPointers[i].style.opacity="0";
+            titPointers[i].style.transform="translateX(18px)";
+            newsTitles[i].style.color="rgb(185, 142, 81)";
+        }
+        newsIndex++;
+        if (newsIndex > newsPics.length) {
+            newsIndex = 1;
+            newsPics[newsIndex-1].style.opacity = "1";
+            titPointers[newsIndex-1].style.opacity = "1";
+            titPointers[newsIndex-1].style.transform="translateX(5px)";
+            titPointers[newsIndex-1].style.transition="transform 0.5s"
+            newsTitles[newsIndex-1].style.color="rgb(240, 156, 56)";
+        }else{
+            newsPics[newsIndex-1].style.opacity = "1";
+            titPointers[newsIndex-1].style.opacity = "1";
+            titPointers[newsIndex-1].style.transform="translateX(5px)";
+            titPointers[newsIndex-1].style.transition="transform 0.5s"
+            newsTitles[newsIndex-1].style.color="rgb(240, 156, 56)";
+        }
+        setTimeout(carousel, 2500);
+    }
+
+    function fadeIn(){
+        let aboutTxt = document.querySelector(".about-txt");
+        let aboutPic = document.querySelector(".about-pic");
+        if(document.documentElement.scrollTop > 1650){
+            aboutTxt.style.left = "0";
+            aboutTxt.style.opacity = "1";
+            aboutPic.style.left = "0";
+            aboutPic.style.opacity="1";
+        }else{
+            aboutTxt.style.left = "-50%";
+            aboutTxt.style.opacity = "0";
+            aboutPic.style.left = "-50%";
+            aboutPic.style.opacity="0";
+        }
+    }
+
+    function goTop(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function init(){
+        document.querySelector(".pagetop").onclick = goTop;
+        carousel();
+        window.onscroll = fadeIn;
+    }
+
+    window.addEventListener("load", init, false);
+    </script>
 </body>
 </html>

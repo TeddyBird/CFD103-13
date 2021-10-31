@@ -11,9 +11,14 @@
 }
 
 /* 商品內容主要頁面 */
+.product-content-page {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .breadcrumb {
   width: 100%;
-  padding: 20px;
+  padding: 50px 0 0 0;
   box-sizing: border-box;
 }
 
@@ -45,7 +50,6 @@
 }
 
 .product-content-page {
-  max-width: 1200px;
   margin: 0 auto 100px auto;
 }
 
@@ -55,13 +59,14 @@
   margin-top: 50px;
 }
 
-.product-pic {
+/* .product-pic {
   width: calc(50% - 80px);
   padding: 0 40px;
-}
+} */
 
 .main-pic {
-  width: calc(100% - 4px);
+  width: 100%;
+  box-sizing: border-box;
   border: 2px solid rgb(185, 142, 81);
   margin-bottom: 20px;
 }
@@ -77,9 +82,11 @@
 }
 
 .switch-pic {
-  width: calc(25% - 24px);
+  width: calc(25% - 10px);
+  box-sizing: border-box;
   margin-right: 10px;
   border: 2px solid rgb(185, 142, 81);
+  cursor: pointer;
 }
 
 .switch-pic img {
@@ -88,8 +95,6 @@
 }
 
 .product-info {
-  width: calc(50% - 80px);
-  padding: 0 40px;
   display: flex;
   flex-direction: column;
 }
@@ -101,10 +106,18 @@
   margin-bottom: 30px;
 }
 
-button.nutrition {
-  font-size: 24px;
+.product-detail p {
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.nutrition-btn {
+  font-size: 20px;
   padding: 1px 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   color: rgb(101, 80, 70);
   background-color: white;
   border: 1px solid rgb(101, 80, 70);
@@ -112,19 +125,54 @@ button.nutrition {
   cursor: pointer;
 }
 
-button.nutrition:hover {
-  background-color: rgb(101, 80, 70);
+.nutrition-btn:hover {
+  background-color: rgb(102, 142, 104);
+  border: 1px solid rgb(102, 142, 104);
   color: white;
 }
 
-.product-detail p {
-  font-size: 24px;
-  color: rgb(101, 80, 70);
-  margin-bottom: 20px;
+.nutrition {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  overflow: scroll;
+  display: none;
+}
+
+.nutrition-content {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 600px;
+  height: 472px;
+}
+
+.nutrition-content img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.close-nutrition {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 10px;
+  font-size: 18px;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  border: none;
 }
 
 .product-detail .price {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 600;
   color: rgb(185, 142, 81);
   text-align: right;
@@ -144,7 +192,7 @@ button.nutrition:hover {
 }
 
 .counter > p {
-  font-size: 24px;
+  font-size: 20px;
   color: rgb(101, 80, 70);
   margin-right: 20px;
 }
@@ -155,7 +203,7 @@ button.nutrition:hover {
 }
 
 .counter-bar button {
-  font-size: 24px;
+  font-size: 20px;
   padding: 0 15px;
   border: none;
   vertical-align: middle;
@@ -166,7 +214,6 @@ button.nutrition:hover {
 
 .counter-bar button:hover {
   background-color: rgb(101, 80, 70);
-  color: white;
 }
 
 button.minus-btn {
@@ -180,38 +227,38 @@ button.plus-btn {
 .counter-bar input {
   width: 60px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   border: none;
   background-color: rgb(240, 235, 234);
   color: rgb(101, 80, 70);
   outline: none;
 }
 
-button.shopcart {
-  width: 50%;
-  font-size: 24px;
+button.buybtn {
+  font-size: 20px;
   background-color: rgb(102, 142, 104);
   border: none;
   color: white;
-  padding: 1px 0;
+  padding: 2px 25px;
   cursor: pointer;
   margin: 50px auto 0;
 }
 
-button.shopcart:hover {
+button.buybtn:hover {
   background-color: rgb(101, 80, 70);
 }
 
 /* 相關商品 */
 .relative {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto 50px;
 }
 
 .relative > h3 {
   color: rgb(185, 142, 81);
   padding: 20px;
-  font-size: 40px;
+  font-family: "Klee One", cursive;
+  font-size: 42px;
   font-weight: 600;
   text-align: center;
   border-bottom: 2px solid rgb(185, 142, 81);
@@ -224,11 +271,10 @@ button.shopcart:hover {
 
 .product-item {
   border: 1px solid rgb(185, 142, 81);
+  transition: transform 0.5s;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  cursor: pointer;
-  transition: transform 0.5s;
   position: relative;
 }
 
@@ -285,42 +331,51 @@ button.shopcart:hover {
   opacity: 0;
 }
 
+.detail,
+.shopping-cart:hover {
+  cursor: pointer;
+}
+
 .detail {
+  display: block;
+  text-decoration: none;
   padding: 10px;
   border: 1px solid white;
   border-radius: 10px;
 }
 
 .detail:hover {
-  border-color: rgb(185, 142, 81);
-  background-color: rgb(185, 142, 81);
+  border-color: rgb(102, 142, 104);
+  background-color: rgb(102, 142, 104);
 }
 
 .detail:hover i {
   color: white;
 }
 
-.detail a i {
+.detail i {
   font-size: 30px;
   color: white;
 }
 
 .shopping-cart {
+  display: block;
+  text-decoration: none;
   padding: 10px;
   border: 1px solid white;
   border-radius: 10px;
 }
 
 .shopping-cart:hover {
-  border-color: rgb(185, 142, 81);
-  background-color: rgb(185, 142, 81);
+  border-color: rgb(102, 142, 104);
+  background-color: rgb(102, 142, 104);
 }
 
 .shopping-cart:hover i {
   color: white;
 }
 
-.shopping-cart a i {
+.shopping-cart i {
   font-size: 30px;
   color: white;
 }
@@ -345,4 +400,91 @@ button.shopcart:hover {
   color: rgb(101, 80, 70);
   font-size: 20px;
   text-align: end;
+}
+
+@media screen and (max-width: 1200px) {
+  .counter-bar button:hover {
+    background-color: rgb(102, 142, 104);
+  }
+
+  button.buybtn:hover {
+    background-color: rgb(102, 142, 104);
+  }
+
+  /* 相關商品 */
+  .products-page .container {
+    margin: 30px auto;
+  }
+
+  .product-item:hover {
+    transform: translateY(0px);
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  .product-item .pic {
+    position: static;
+  }
+
+  .product-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    height: 30px;
+    opacity: 1;
+  }
+
+  .detail {
+    padding: 5px 0;
+    width: 45%;
+    border: 1px solid rgb(102, 142, 104);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .detail:hover {
+    border-color: rgb(102, 142, 104);
+    background-color: transparent;
+  }
+
+  .detail:hover i {
+    color: rgb(102, 142, 104);
+  }
+
+  .detail i {
+    font-size: 20px;
+    color: rgb(102, 142, 104);
+  }
+
+  .shopping-cart {
+    padding: 5px 0;
+    width: 45%;
+    border: 1px solid rgb(102, 142, 104);
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(102, 142, 104);
+  }
+
+  .shopping-cart i {
+    font-size: 20px;
+    color: white;
+  }
+
+  .shopping-cart:hover {
+    border-color: rgb(102, 142, 104);
+    background-color: rgb(102, 142, 104);
+  }
+
+  .shopping-cart:hover i {
+    color: white;
+  }
+
+  .shopping-cart i {
+    font-size: 20px;
+    color: white;
+  }
 }

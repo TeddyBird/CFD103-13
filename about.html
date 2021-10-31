@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="/styles/header.css">
@@ -18,11 +22,15 @@
     <header>
         <h1 class="logo">
             <a href="./index.html">
-                <img src="./picture/logo/logo橫.png" alt="Bread&Butter">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
             </a>
         </h1>
+
+        <!-- 漢堡 -->
         <label for="menu_control" class="menu_btn">
-            <span>選單</span>
+            <span></span>
+            <span></span>
+            <span></span>
         </label>
         <nav>
             <ul class="first-nav">
@@ -49,7 +57,7 @@
 
     <!-- 開頭背景圖 -->
     <div class="head-banner">
-        <img src="./picture/banner/banner5.png" alt="banner">
+        <img src="./picture/banner/banner5.jpg" alt="banner">
     </div>
 
     <!-- 關於我們頁面 -->
@@ -69,7 +77,7 @@
             <h3>店家理念</h3>
             <div class="wrap">
                 <div class="pic">
-                    <img src="./picture/shop/店家照片.png" alt="">
+                    <img src="./picture/shop/shop.jpg" alt="">
                 </div>
                 <div class="txt">
                     <p><em>"Bread and Butter"</em>是英語的俚語，意味著生活不可或缺的人事物，那就是中文裡柴米油鹽吧！「麵包與奶油,單純而樸實」的概念。<br>
@@ -85,7 +93,9 @@
                 <div class="feature-group">
                     <h4 class="feature-title"><span>01</span>天然材料</h4>
                     <div class="feature-content">
-                        <img src=".//picture/aboutus/天然食材.jpg" alt="">
+                        <div class="feature-pic">
+                            <img src="./picture/aboutus/about.01.jpg" alt="天然材料">
+                        </div>
                         <div class="feature-txt">
                             <p>選用日本製麵粉，以自然長時間發酵的方式，準備著各式不同的麵團，僅用純天然動物性奶油，搭配牛奶、雞蛋等各地新鮮食材，自家調配餡料，使用最天然的食材，創造出柔和卻豐富的口感。
                             </p>
@@ -95,7 +105,9 @@
                 <div class="feature-group">
                     <h4 class="feature-title"><span>02</span>每日現做</h4>
                     <div class="feature-content">
-                        <img src=".//picture/aboutus/每日手作.jpg" alt="">
+                        <div class="feature-pic">
+                            <img src="./picture/aboutus/about.02.jpg" alt="每日現做">
+                        </div>
                         <div class="feature-txt feature-txt-even">
                             <p>每日一早，烘焙師傅穿上廚師袍從揉麵、發酵，打發，烘烤到脫模，每一步都用心製作每日新鮮出爐的不只是美味的保證，更是師傅的顆顆真心。
                             </p>
@@ -105,7 +117,9 @@
                 <div class="feature-group">
                     <h4 class="feature-title"><span>03</span>職人精神</h4>
                     <div class="feature-content">
-                        <img src=".//picture/aboutus/職人精神2.jpg" alt="">
+                        <div class="feature-pic">
+                            <img src="./picture/aboutus/about.03.jpg" alt="職人精神">
+                        </div>
                         <div class="feature-txt">
                             <p>烘烤出美味麵包的背後，每一道工序都絕不馬虎從食材選用、發酵時間到烘烤溫度及濕度唯有每一步百分百的堅持，才會烘焙出相等品質的感動。
                             </p>
@@ -146,7 +160,7 @@
                         </div>
                         <div class="email">
                             <i class="fas fa-envelope"></i>
-                            <a href="">breadnbutter@gmail.com</a>
+                            <p>breadnbutter@gmail.com</p>
                         </div>
                     </div>    
                 </div>
@@ -156,6 +170,28 @@
             <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
         </div>       
     </footer>
+
+    <script>
+
+        console.log(document.documentElement.scrollTop);
+
+        function showTxt(){
+            let txts = document.querySelectorAll(".feature-content");
+            for(let i = 0; i < txts.length; i++){
+                if(document.documentElement.scrollTop > (1050 + i*420)){
+                    txts[i].classList.add("showdetail");
+                }else{
+                    txts[i].classList.remove("showdetail");
+                }
+            }
+
+        }
+
+        function init(){
+            window.onscroll = showTxt;
+        }
+        window.addEventListener("load", init, false);
+    </script>
 
 
     

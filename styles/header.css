@@ -5,7 +5,10 @@ body {
 /* header區域 */
 
 #menu_control {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 header {
@@ -41,6 +44,7 @@ nav {
   align-self: flex-end;
   position: relative;
   margin-right: -20px;
+  z-index: 10;
 }
 
 nav ul.first-nav {
@@ -118,7 +122,15 @@ nav ul.first-nav > li:hover .second-nav {
   color: rgb(185, 142, 81);
 }
 
-@media screen and (max-width: 1201px) {
+@media screen and (max-width: 1200px) {
+  header {
+    height: 80px;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
   #menu_control:checked ~ header nav {
     left: 0;
   }
@@ -128,42 +140,71 @@ nav ul.first-nav > li:hover .second-nav {
     height: 50px;
     border-radius: 5px;
     background-color: rgb(185, 142, 81);
-    display: block;
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 35px;
+    top: 15px;
     right: 50px;
   }
 
   .menu_btn span {
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-    display: block;
-    overflow: hidden;
+    width: 40px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: top 0.5s 0.2s, bottom 0.5s 0.2s, opacity 0.5s 0.2s,
+      transform 0.2s;
   }
 
-  .menu_btn::before {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 40px;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 5px;
-    margin: auto;
-    box-shadow: 0px 13px 0px white, 0px -13px 0px white;
+  .menu_btn span:first-child {
+    top: 10px;
+    transform: rotate(0deg);
+  }
+
+  .menu_btn span:last-child {
+    bottom: 10px;
+    transform: rotate(0deg);
+  }
+
+  .menu_btn span:nth-child(2) {
+    bottom: 0px;
+    top: 0px;
+  }
+
+  #menu_control:checked + header .menu_btn span:first-child {
+    transform: rotate(45deg);
+    top: 23px;
+    transition: transform 0.2s 0.5s, top 0.5s;
+  }
+
+  #menu_control:checked + header .menu_btn span:last-child {
+    transform: rotate(-45deg);
+    bottom: 23px;
+    transition: transform 0.2s 0.5s, bottom 0.5s;
+  }
+
+  .menu_btn span:nth-child(2) {
+    opacity: 1;
+  }
+
+  #menu_control:checked + header .menu_btn span:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.5s;
   }
 
   nav {
     display: block;
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 80px);
     background-color: rgb(57, 87, 59);
     position: absolute;
-    top: 120px;
+    top: 100%;
     left: -100%;
-    transition: all 0.5s;
+    overflow: scroll;
+    transition: left 0.5s;
   }
 
   nav ul.first-nav {
@@ -173,22 +214,25 @@ nav ul.first-nav > li:hover .second-nav {
 
   nav ul.first-nav > li {
     padding: 10px;
+    position: relative;
+    overflow: hidden;
   }
 
   nav ul.first-nav > li > a {
     position: relative;
+    font-size: 24px;
   }
 
   nav li:hover > a {
     background-color: rgb(57, 87, 59);
   }
 
-  nav ul.first-nav > li:hover .second-nav {
-    display: none;
+  .first-nav > li:hover .second-nav {
+    display: unset;
   }
 
   #check_list:checked ~ .second-nav {
-    display: block;
+    height: 132px;
   }
 
   #check_list:checked ~ .list_btn::after {
@@ -197,16 +241,17 @@ nav ul.first-nav > li:hover .second-nav {
 
   .list_btn {
     display: inline-block;
-    width: 21px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
     border: 1px solid white;
-    position: relative;
+    position: absolute;
+    top: 20px;
   }
 
   .list_btn::before {
     content: "";
     position: absolute;
-    width: 15px;
+    width: 14px;
     height: 1px;
     background-color: white;
     top: 10px;
@@ -216,7 +261,7 @@ nav ul.first-nav > li:hover .second-nav {
     content: "";
     position: absolute;
     width: 1px;
-    height: 15px;
+    height: 14px;
     background-color: white;
     top: 3px;
     left: 10px;
@@ -225,11 +270,12 @@ nav ul.first-nav > li:hover .second-nav {
   .second-nav {
     position: relative;
     background-color: rgb(57, 87, 59);
-    display: none;
+    height: 0;
+    transition: 0.5s;
   }
 
   .second-nav li a {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .nav-icon {
@@ -238,22 +284,18 @@ nav ul.first-nav > li:hover .second-nav {
   }
 }
 
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 768px) {
   header {
-    padding: 10px 20px;
-  }
-
-  .menu_btn {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(185, 142, 81);
-    display: block;
-    position: absolute;
-    top: 35px;
-    right: 20px;
+    padding: 5px 20px;
+    height: 80px;
   }
 
   .logo {
     width: 200px;
+  }
+
+  .menu_btn {
+    top: 15px;
+    right: 20px;
   }
 }
