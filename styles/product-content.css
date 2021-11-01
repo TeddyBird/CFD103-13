@@ -421,11 +421,11 @@ button.buybtn:hover {
 
 @media screen and (max-width: 1200px) {
   .counter-bar button:hover {
-    background-color: rgb(102, 142, 104);
+    background-color: rgb(185, 142, 81);
   }
 
   button.buybtn:hover {
-    background-color: rgb(102, 142, 104);
+    background-color: rgb(185, 142, 81);
   }
 
   /* 相關商品 */
