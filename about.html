@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/about.css">
+    <script src="./JS/about.js"></script>
     <title>Bread&Butter | 關於我們</title>
 </head>
 <body>
@@ -50,7 +51,10 @@
             </ul>
             <div class="nav-icon">
                 <a href="./login.html"><i class="fas fa-user"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
             </div>
         </nav>
     </header>
@@ -171,10 +175,7 @@
         </div>       
     </footer>
 
-    <script>
-
-        console.log(document.documentElement.scrollTop);
-
+    <!-- <script>
         function showTxt(){
             let txts = document.querySelectorAll(".feature-content");
             for(let i = 0; i < txts.length; i++){
@@ -184,14 +185,24 @@
                     txts[i].classList.remove("showdetail");
                 }
             }
-
+            let concept = document.querySelector(".concept .txt");
+            if(document.documentElement.scrollTop > 300){
+            concept.style.opacity = "1";
+            concept.style.bottom = "-150px";
+            concept.style.left = "-100px";
+            }else{
+            concept.style.opacity = "0";
+            concept.style.bottom = "-300px";
+            concept.style.left = "-50px";
+            }
         }
+
 
         function init(){
             window.onscroll = showTxt;
         }
         window.addEventListener("load", init, false);
-    </script>
+    </script> -->
 
 
     

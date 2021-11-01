@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/index.css">
+    <script src="./JS/index.js"></script>
     <title>Bread&Butter烘焙坊 | 首頁</title>
 </head>
 <body>
@@ -25,7 +26,6 @@
                 <img src="./picture/logo/logo02.png" alt="Bread&Butter">
             </a>
         </h1>
-
         <!-- 漢堡 -->
         <label for="menu_control" class="menu_btn">
             <span></span>
@@ -50,11 +50,13 @@
             </ul>
             <div class="nav-icon">
                 <a href="./login.html"><i class="fas fa-user"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
             </div>
         </nav>
     </header>
-
 
     <!-- slogan-banner區 -->
     <div class="banner" >
@@ -85,18 +87,24 @@
                         <div class="news-list">
                             <div class="news-title">
                                 <time datetime="2021-10-23">2021.10.23</time>
-                                <h3><a href="./news.html">雙11光棍節別傷心，當日法棍買一送一</a></h3>
-                                <i class="fas fa-caret-left"></i>
+                                <h3>
+                                    <a href="./news.html">雙11光棍節別傷心，當日法棍買一送一</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
                             </div>
                             <div class="news-title">
                                 <time datetime="2021-10-16">2021.10.16</time>
-                                <h3><a href="./news.html">聖誕蛋糕預購開始囉!</a></h3>
-                                <i class="fas fa-caret-left"></i>
+                                <h3>
+                                    <a href="./news.html">聖誕蛋糕預購開始囉!</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
                             </div>
                             <div class="news-title">
                                 <time datetime="2021-10-01">2021.10.01</time>
-                                <h3><a href="./news.html">中秋節本店公休一天~</a></h3>
-                                <i class="fas fa-caret-left"></i>
+                                <h3>
+                                    <a href="./news.html">中秋節本店公休一天~</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
                             </div>
                         </div>
                         <a class="more" href="./news.html">more</a>
@@ -113,7 +121,7 @@
             <div class="basket">
                 <img src="./picture/hot-product/basket.png" alt="breadbasket">
             </div>
-            <ol class="hot-product-slides">
+            <div class="hot-product-slides">
                 <input type="radio" id="control-1" name="control" checked>
                 <input type="radio" id="control-2" name="control">
                 <input type="radio" id="control-3" name="control">
@@ -140,14 +148,13 @@
 
                 </div>
                 
-                <li class="hot-product-group">
+                <div class="hot-product-group">
                     <div class="txt txt3">
                         <div class="medal">
                             <img src="./picture/hot-product/medal1.png" alt="meadl">
                         </div>
                         <h3>
-                            <a href="#">黑麥鄉村麵包</a>
-                            <i class="fas fa-hand-point-up"></i>
+                            <a href="./product-content.html">黑麥鄉村麵包</a>
                         </h3>
                         <span>/ NT$85</span>
                         <p>精選德國烘烤過的大麥芽粉，具有其特殊香氣與天然深色澤。</p>
@@ -155,15 +162,15 @@
                     <div class="item item3">
                         <img src="./picture/hot-product/hot-bread3.png" alt="黑麥鄉村麵包">
                     </div>
-                </li>
-                <li class="hot-product-group">
+                </div>
+                <div class="hot-product-group">
                     <div class="txt txt1">
                         <div class="medal">
                             <img src="./picture/hot-product/medal2.png" alt="meadl">
                         </div>
                         <h3>
                             <a href="./product-content.html">法國長棍</a>
-                            <i class="fas fa-hand-point-up"></i>
+                            <!-- <i class="fas fa-hand-point-up"></i> -->
                         </h3>
                         <span>/ NT$100</span>
                         <p>法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。</p>
@@ -171,15 +178,15 @@
                     <div class="item item1">
                         <img src="./picture/hot-product/hot-bread1.png" alt="法國長棍">
                     </div>
-                </li>
-                <li class="hot-product-group">
+                </div>
+                <div class="hot-product-group">
                     <div class="txt txt2">
                         <div class="medal">
                             <img src="./picture/hot-product/medal3.png" alt="meadl">
                         </div>
                         <h3>
-                            <a href="#">歐式蔓越莓核桃</a>
-                            <i class="fas fa-hand-point-up"></i>
+                            <a href="./product-content.html">歐式蔓越莓核桃</a>
+                            <!-- <i class="fas fa-hand-point-up"></i> -->
                         </h3>
                         <span>/ NT$120</span>
                         <p>獨家歐式老麵糰，表皮具韌度、麵心富有嚼勁，麥香混合乾果和堅果酥脆香。</p>
@@ -187,8 +194,8 @@
                     <div class="item item2">
                         <img src="./picture/hot-product/hot-bread2.png" alt="歐式蔓越莓核桃">
                     </div>
-                </li>
-            </ol>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -358,67 +365,5 @@
             <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
         </div>       
     </footer>
-
-
-    
-    <script type="text/javascript">
-    let newsIndex = 0;
-    function carousel() {
-        let newsPics = document.getElementsByClassName("news-pic");
-        let titPointers = document.getElementsByClassName("fa-caret-left");
-        let newsTitles = document.querySelectorAll(".news-title a");
-        for (let i = 0; i < newsPics.length; i++) {
-            newsPics[i].style.opacity = "0";  
-            titPointers[i].style.opacity="0";
-            titPointers[i].style.transform="translateX(18px)";
-            newsTitles[i].style.color="rgb(185, 142, 81)";
-        }
-        newsIndex++;
-        if (newsIndex > newsPics.length) {
-            newsIndex = 1;
-            newsPics[newsIndex-1].style.opacity = "1";
-            titPointers[newsIndex-1].style.opacity = "1";
-            titPointers[newsIndex-1].style.transform="translateX(5px)";
-            titPointers[newsIndex-1].style.transition="transform 0.5s"
-            newsTitles[newsIndex-1].style.color="rgb(240, 156, 56)";
-        }else{
-            newsPics[newsIndex-1].style.opacity = "1";
-            titPointers[newsIndex-1].style.opacity = "1";
-            titPointers[newsIndex-1].style.transform="translateX(5px)";
-            titPointers[newsIndex-1].style.transition="transform 0.5s"
-            newsTitles[newsIndex-1].style.color="rgb(240, 156, 56)";
-        }
-        setTimeout(carousel, 2500);
-    }
-
-    function fadeIn(){
-        let aboutTxt = document.querySelector(".about-txt");
-        let aboutPic = document.querySelector(".about-pic");
-        if(document.documentElement.scrollTop > 1650){
-            aboutTxt.style.left = "0";
-            aboutTxt.style.opacity = "1";
-            aboutPic.style.left = "0";
-            aboutPic.style.opacity="1";
-        }else{
-            aboutTxt.style.left = "-50%";
-            aboutTxt.style.opacity = "0";
-            aboutPic.style.left = "-50%";
-            aboutPic.style.opacity="0";
-        }
-    }
-
-    function goTop(){
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-
-    function init(){
-        document.querySelector(".pagetop").onclick = goTop;
-        carousel();
-        window.onscroll = fadeIn;
-    }
-
-    window.addEventListener("load", init, false);
-    </script>
 </body>
 </html>

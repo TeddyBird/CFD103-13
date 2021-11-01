@@ -27,18 +27,24 @@
   padding: 10px 50px 20px;
   position: absolute;
   top: -44px;
+  overflow: hidden;
+}
+
+.about-page h2::after {
+  content: "";
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background-image: url(../picture/background/wheat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 25px;
+  right: -5px;
 }
 
 @media screen and (max-width: 768px) {
   .about-page h2 {
-    background-color: rgb(101, 80, 70);
-    color: white;
-    display: inline-block;
     font-size: 40px;
-    font-family: "Klee One", cursive;
-    font-weight: 600;
-    padding: 10px 50px 20px;
-    position: absolute;
     top: -38px;
   }
 }
@@ -118,19 +124,22 @@
   position: relative;
   left: -100px;
   bottom: -150px;
+  opacity: 0;
+  transition: all 1s;
 }
 
 .concept .txt p {
   color: rgb(101, 80, 70);
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.8;
+  letter-spacing: 1px;
   text-align: justify;
 }
 
 @media screen and (max-width: 768px) {
   .concept .wrap {
     flex-direction: column;
-    padding: 30px 20px 80px 20px;
+    padding: 30px 20px;
   }
 
   .concept .pic {
@@ -144,12 +153,11 @@
     padding: 20px;
     position: static;
   }
+}
 
-  .concept .txt p {
-    color: rgb(101, 80, 70);
-    font-size: 18px;
-    line-height: 1.5;
-    text-align: justify;
+@media screen and (max-width: 567px) {
+  .concept h3 {
+    font-size: 40px;
   }
 }
 
@@ -160,7 +168,7 @@
 }
 
 .feature h3 {
-  font-size: 42px;
+  font-size: 40px;
   font-family: "Klee One", cursive;
   color: rgb(102, 142, 104);
   font-weight: 600;
@@ -211,13 +219,17 @@
 }
 
 .feature-txt p {
-  font-size: 18px;
+  font-size: 20px;
   color: rgb(101, 80, 70);
-  line-height: 1.4;
+  line-height: 1.5;
   text-align: justify;
 }
 
 @media screen and (min-width: 576px) {
+  .feature h3 {
+    font-size: 42px;
+  }
+
   .feature-group {
     display: flex;
     justify-content: space-evenly;
@@ -259,13 +271,6 @@
     padding: 0 0 0 20px;
     display: flex;
     align-items: center;
-  }
-
-  .feature-txt p {
-    font-size: 18px;
-    color: rgb(101, 80, 70);
-    line-height: 1.4;
-    text-align: justify;
   }
 }
 

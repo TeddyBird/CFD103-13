@@ -47,19 +47,19 @@ nav {
   z-index: 10;
 }
 
-nav ul.first-nav {
+.first-nav {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: -10px;
 }
 
-nav ul.first-nav > li {
+.first-nav > li {
   text-align: center;
   position: relative;
 }
 
-nav ul.first-nav > li > a {
+.first-nav > li > a {
   padding: 10px;
   display: inline-block;
   text-decoration: none;
@@ -71,7 +71,7 @@ nav li:hover > a {
   background-color: rgb(185, 142, 81);
 }
 
-nav ul.first-nav > li:hover .second-nav {
+.first-nav > li:hover .second-nav {
   display: block;
 }
 
@@ -110,6 +110,8 @@ nav ul.first-nav > li:hover .second-nav {
 .nav-icon a {
   display: block;
   padding: 0 20px 10px 10px;
+  text-decoration: none;
+  position: relative;
 }
 
 .nav-icon a i {
@@ -120,6 +122,22 @@ nav ul.first-nav > li:hover .second-nav {
 
 .nav-icon a:hover i {
   color: rgb(185, 142, 81);
+}
+
+.shopcart-alert {
+  width: 20px;
+  height: 20px;
+  border-radius: 90%;
+  background-color: red;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: -10px;
+  right: 7px;
+  display: none;
 }
 
 @media screen and (max-width: 1200px) {
@@ -207,18 +225,18 @@ nav ul.first-nav > li:hover .second-nav {
     transition: left 0.5s;
   }
 
-  nav ul.first-nav {
+  .first-nav {
     width: 100%;
     display: block;
   }
 
-  nav ul.first-nav > li {
+  .first-nav > li {
     padding: 10px;
     position: relative;
     overflow: hidden;
   }
 
-  nav ul.first-nav > li > a {
+  .first-nav > li > a {
     position: relative;
     font-size: 24px;
   }
@@ -228,11 +246,11 @@ nav ul.first-nav > li:hover .second-nav {
   }
 
   .first-nav > li:hover .second-nav {
-    display: unset;
+    display: none;
   }
 
   #check_list:checked ~ .second-nav {
-    height: 132px;
+    display: block;
   }
 
   #check_list:checked ~ .list_btn::after {
@@ -270,8 +288,7 @@ nav ul.first-nav > li:hover .second-nav {
   .second-nav {
     position: relative;
     background-color: rgb(57, 87, 59);
-    height: 0;
-    transition: 0.5s;
+    display: none;
   }
 
   .second-nav li a {
@@ -281,6 +298,14 @@ nav ul.first-nav > li:hover .second-nav {
   .nav-icon {
     justify-content: center;
     margin-top: 20px;
+  }
+
+  .nav-icon a {
+    padding: 0 20px;
+  }
+
+  .nav-icon a:hover i {
+    color: white;
   }
 }
 
