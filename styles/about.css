@@ -1,0 +1,374 @@
+/* 開頭背景圖 */
+.head-banner {
+  width: 100%;
+}
+
+.head-banner img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/*關於我們頁面 */
+.top-title {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.about-page h2 {
+  background-color: rgb(101, 80, 70);
+  color: white;
+  display: inline-block;
+  font-size: 48px;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  padding: 10px 50px 20px;
+  position: absolute;
+  top: -44px;
+  overflow: hidden;
+}
+
+.about-page h2::after {
+  content: "";
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background-image: url(../picture/background/wheat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 25px;
+  right: -5px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-page h2 {
+    font-size: 40px;
+    top: -38px;
+  }
+}
+
+.breadcrumb {
+  width: 100%;
+  padding: 50px 0 0 0;
+  box-sizing: border-box;
+}
+
+.breadcrumb ol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.breadcrumb li {
+  padding: 0 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breadcrumb li + li::before {
+  content: ">";
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin-right: 10px;
+}
+
+.breadcrumb li:last-child a {
+  color: rgb(185, 142, 81);
+}
+
+/* 店家理念 */
+.concept {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.concept h3 {
+  font-size: 42px;
+  color: rgb(102, 142, 104);
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  text-align: center;
+  padding: 80px 0 20px 0;
+}
+
+.concept .wrap {
+  display: flex;
+  align-items: center;
+  padding: 30px 0 150px 0;
+}
+
+.concept .pic {
+  width: 60%;
+  position: relative;
+  right: -50px;
+  transform: rotate(-3deg);
+}
+
+.concept .pic img {
+  width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.concept .txt {
+  width: 50%;
+  background-color: rgb(240, 235, 234);
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  left: -100px;
+  bottom: -150px;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.concept .txt p {
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .concept .wrap {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .concept .pic {
+    width: 100%;
+    position: static;
+    transform: rotate(0deg);
+  }
+
+  .concept .txt {
+    width: 100%;
+    padding: 20px;
+    position: static;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .concept h3 {
+    font-size: 40px;
+  }
+}
+
+/* 店家特色  */
+.feature {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+}
+
+.feature h3 {
+  font-size: 40px;
+  font-family: "Klee One", cursive;
+  color: rgb(102, 142, 104);
+  font-weight: 600;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.Kraftpaper {
+  width: 100%;
+  background-image: url(../picture/background/Kraftpaper.jpg);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-group {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.feature-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(101, 80, 70);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.feature-content {
+  width: calc(100% - 40px);
+  padding: 0 20px;
+}
+.feature-pic {
+  width: 80%;
+  margin: auto;
+}
+
+.feature-pic img {
+  width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  border-radius: 50%;
+}
+
+.feature-txt {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.feature-txt p {
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  line-height: 1.5;
+  text-align: justify;
+}
+
+@media screen and (min-width: 576px) {
+  .feature h3 {
+    font-size: 42px;
+  }
+
+  .feature-group {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  .feature-group:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .feature-title {
+    writing-mode: vertical-lr;
+    margin: 0;
+  }
+
+  .feature-title span {
+    writing-mode: horizontal-tb;
+    padding: 0 0 0 10px;
+  }
+
+  .feature-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60%;
+    padding: 0;
+  }
+
+  .feature-pic {
+    width: 40%;
+    margin: 0;
+  }
+
+  .feature-txt {
+    width: calc(60% - 20px);
+    margin: 0;
+    padding: 0 0 0 20px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .feature h3 {
+    position: relative;
+  }
+
+  .feature-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 60px 0;
+  }
+
+  .feature-group:nth-child(odd) .feature-title {
+    font-size: 48px;
+    font-weight: 600;
+    position: relative;
+    left: 10%;
+    color: rgb(101, 80, 70);
+  }
+
+  .feature-group:nth-child(even) .feature-title {
+    writing-mode: vertical-lr;
+    font-size: 48px;
+    font-weight: 600;
+    position: relative;
+    right: 10%;
+    color: rgb(101, 80, 70);
+  }
+
+  .feature-group:nth-child(odd) .feature-content {
+    right: -20%;
+  }
+
+  .feature-group:nth-child(even) .feature-content {
+    left: -20%;
+  }
+
+  .feature-content {
+    width: 120%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 55% 45% 60% 40% / 52% 61% 39% 48%;
+  }
+
+  .feature-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 55% 45% 60% 40% / 52% 61% 39% 48%;
+    object-fit: cover;
+  }
+
+  .feature-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 55% 45% 60% 40% / 52% 61% 39% 48%;
+    vertical-align: bottom;
+  }
+
+  .feature-txt {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 55% 45% 60% 40% / 52% 61% 39% 48%;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s 0.5s;
+    padding: 0;
+  }
+
+  .feature-txt-even {
+    transform: translate(-150%, -50%);
+  }
+
+  .showdetail .feature-txt {
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+  }
+
+  .feature-txt p {
+    width: 60%;
+    margin: auto;
+    font-size: 24px;
+    color: white;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  .showdetail .feature-txt p {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.5s 0.5s;
+  }
+}

@@ -1,0 +1,170 @@
+/* 會員登入頁面 */
+.login-page {
+  background-image: url(../picture/background/login.png);
+  background-size: cover;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login-slogan {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-slogan p {
+  font-size: 2vmin;
+  font-weight: 600;
+  color: rgb(101, 80, 70);
+  background-color: rgb(240, 235, 234);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.login-slogan p::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid rgb(240, 235, 234);
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid transparent;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.people {
+  width: 40%;
+}
+
+.people img {
+  width: 100%;
+}
+
+.login-area {
+  width: calc(40% - 60px);
+  padding: 150px 30px;
+  background-color: rgb(240, 235, 234);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-area h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(185, 142, 81);
+  margin-bottom: 40px;
+}
+
+.login-group {
+  margin-bottom: 10px;
+}
+
+.login-group label {
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+}
+
+.login-group input {
+  width: calc(100% - 10px);
+  font-size: 20px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(101, 80, 70);
+  background-color: rgb(240, 235, 234);
+  outline: none;
+}
+
+.other-box {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.other-box a {
+  text-decoration: none;
+  vertical-align: baseline;
+  color: rgb(101, 80, 70);
+}
+
+.other-box a:hover {
+  color: rgb(185, 142, 81);
+}
+
+.line {
+  width: 0;
+  height: 16px;
+  border-right: 1px solid rgb(101, 80, 70);
+  margin: 0 10px;
+}
+
+.login-btn {
+  width: 50%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  font-size: 20px;
+  padding: 10px 40px;
+  margin: 30px auto 0 auto;
+}
+
+.login-btn:hover {
+  background-color: rgb(101, 80, 70);
+}
+/* 
+@keyframes move{
+  0%{
+
+  }
+} */
+
+@media screen and (max-width: 1200px) {
+  .login-slogan {
+    width: 50%;
+  }
+
+  .people {
+    width: 50%;
+  }
+
+  .login-btn:hover {
+    background-color: rgb(102, 142, 104);
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .login-slogan {
+    display: none;
+  }
+
+  .people {
+    width: 50%;
+  }
+
+  .login-area {
+    width: calc(80% - 60px);
+    margin: auto;
+    padding: 80px 30px;
+  }
+}
+
+.login-btn {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 30px auto 0 auto;
+}

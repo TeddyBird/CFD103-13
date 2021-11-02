@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/news.css">
+    <title>Bread&Butter烘焙坊 | 最新消息</title>
+</head>
+<body>
+    <!-- header區域 -->
+    <input type="checkbox" id="menu_control">
+    <header>
+        <h1 class="logo">
+            <a href="./index.html">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
+            </a>
+        </h1>
+
+        <!-- 漢堡 -->
+        <label for="menu_control" class="menu_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="first-nav">
+                <li><a href="./news.html">最新消息</a></li>
+                <li>
+                    <a href="./products.html" class="checkable">商品專區</a>
+                    <input type="checkbox" id="check_list">
+                    <label for="check_list" class="list_btn"></label>
+                    <ul class="second-nav">
+                        <li><a href="./products.html">麵包系列</a></li>
+                        <li><a href="./products.html">蛋糕系列</a></li>
+                        <li><a href="./products.html">手工餅乾</a></li>
+                    </ul>
+                </li>
+                <li><a href="./about.html">關於我們</a></li>
+                <li><a href="./contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="nav-icon">
+                <a href="./login.html"><i class="fas fa-user"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- 開頭背景圖 -->
+    <div class="head-banner">
+        <img src="./picture/banner/banner2.jpg" alt="banner">
+    </div>
+
+    <!-- 最新消息頁面 -->
+    <main class=news-page>
+        <div class="top-title">
+            <h2>最新消息</h2>
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="./index.html">首頁</a></li>
+                    <li><a href="#">最新消息</a></li>
+                </ol>
+            </div>
+        </div>
+        <section>
+            <div class="news-card">
+                <div class="pic">
+                    <img src="./picture/news/news01.jpg" alt="雙11優惠">
+                </div>
+                <div class="txt">
+                    <time datetime="2021-10-23">2021.10.23</time>
+                    <h3>雙11光棍節別傷心，當日法棍買一送一</h3>
+                    <a class="news-more" href="#">了解詳情</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="pic">
+                    <img src="./picture/news/news02.jpg" alt="萬聖節預購">
+                </div>
+                <div class="txt">
+                    <time datetime="2021-10-16">2021.10.16</time>
+                    <h3>萬聖節蛋糕預購開始囉!</h3>
+                    <a class="news-more" href="#">了解詳情</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="pic">
+                    <img src="./picture/news/news03.jpg" alt="中秋店休">
+                </div>
+                <div class="txt">
+                    <time datetime="2021-10-01">2021.10.01</time>
+                    <h3>中秋節本店公休一天~</h3>
+                    <a class="news-more" href="#">了解詳情</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="pic">
+                    <img src="./picture/news/news04.jpg" alt="">
+                </div>
+                <div class="txt">
+                    <time datetime="2021-09-09">2021.09.09</time>
+                    <h3>脆皮鹽可頌 新品上市!</h3>
+                    <a class="news-more" href="#">了解詳情</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 分頁列表 -->
+        <div class="page">
+            <ul class="pagination">
+              <li><a href="#">«</a></li>
+              <li><a class="active" href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">»</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- footer區域 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="./news.html">最新消息</a></li>
+                            <li><a href="./products.html">商品專區</a></li>
+                            <li><a href="./about.html">關於我們</a></li>
+                            <li><a href="./contact.html">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <div class="footer-logo">
+                        <img src="./picture/logo/logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-info">
+                        <div class="address">台北市中山區南京東路三段219號</div>
+                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>02-27120589</span>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <p>breadnbutter@gmail.com</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
+        </div>       
+    </footer>
+</body>
+</html>

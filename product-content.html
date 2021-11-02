@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/product-content.css">
+    <script src="./JS/product-content.js"></script>
+    <title>Bread&Butter烘焙坊 | 商品內容</title>
+</head>
+<body>
+    <!-- header區域 -->
+    <input type="checkbox" id="menu_control">
+    <header>
+        <h1 class="logo">
+            <a href="./index.html">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
+            </a>
+        </h1>
+
+        <!-- 漢堡 -->
+        <label for="menu_control" class="menu_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="first-nav">
+                <li><a href="./news.html">最新消息</a></li>
+                <li>
+                    <a href="./products.html" class="checkable">商品專區</a>
+                    <input type="checkbox" id="check_list">
+                    <label for="check_list" class="list_btn"></label>
+                    <ul class="second-nav">
+                        <li><a href="./products.html">麵包系列</a></li>
+                        <li><a href="./products.html">蛋糕系列</a></li>
+                        <li><a href="./products.html">手工餅乾</a></li>
+                    </ul>
+                </li>
+                <li><a href="./about.html">關於我們</a></li>
+                <li><a href="./contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="nav-icon">
+                <a href="./login.html"><i class="fas fa-user"></i></a>
+                <a class="shopcart-icon" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 開頭背景圖 -->
+    <div class="head-banner">
+        <img src="./picture/banner/banner2.jpg" alt="banner">
+    </div>
+
+    <!-- 商品內容主要頁面 -->
+    <main class="product-content-page">         
+        <div class="breadcrumb">
+            <ol>
+                <li><a href="./index.html">首頁</a></li>
+                <li><a href="./products.html">商品專區</a></li>
+                <li><a href="#">法式麵包</a></li>
+            </ol>
+        </div>
+        <section class="product-content">
+            <div class="container">
+                <div class="row">
+                    <div class="product-pic col-12 col-sm-5">
+                        <div class="main-pic">
+                            <img  id="large" src="./picture/product/product01.jpg" alt="法國長棍">
+                        </div>
+                        <div class="pic-switch">
+                            <div class="switch-pic">
+                                <img src="./picture/product/product01.jpg" alt="法國長棍">
+                            </div>
+                            <div class="switch-pic">
+                                <img  src="./picture/product/product01-2.jpg" alt="法國長棍切面"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info col-12 col-sm-7">
+                        <div class="product-detail">
+                            <h3>法式長棍</h3>
+                            <p>全素</p>
+                            <p>成分:麵粉、鹽、酵母、水</p>
+                            <p>保存期限:常溫3天，冷凍14天</p>
+                            <p>商品介紹:法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。</p>
+                            <button class="nutrition-btn">營養標示</button>
+                            <div class="nutrition">
+                                <div class="nutrition-content">
+                                    <img src="./picture/nutrition/product-nutrition01.jpg" alt="營養標示">
+                                    <button class="close-nutrition">關閉</button>
+                                </div>
+                            </div>
+                            <p class="price">NT$100</p>
+                        </div>
+                        <div class="buy-box">
+                            <div class="counter">
+                                <p>數量</p>
+                                <div class="counter-bar">
+                                    <button class="minus-btn">-</button>
+                                    <input type="txt" value="1">
+                                    <button class="plus-btn">+</button>
+                                </div>
+                            </div>
+                            <button class="buybtn"><i class="fas fa-shopping-cart"></i>加入購物車</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 相關產品 -->
+    <section class="relative">
+        <div class="title-container">
+            <h3>相關商品</h3>
+        </div>
+        <div class="container">
+            <ul class="row">
+                <li class="product-card col-12 col-xs-6 col-md-3">
+                    <div class="product-item">
+                        <div class="hot-tag">HOT !
+                            <div class="angle"></div>
+                        </div>
+                        <div class="pic">
+                            <img src="./picture/product/product02.jpg" alt="法式可可">
+                            <div class="product-btn">
+                                <a  class="detail" href="./product-content.html">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a class="shopping-cart" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                           </div>
+                        </div>
+                        <div class="txt">
+                            <h3>法式可可</h3>
+                            <p class="price">NT$90</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="product-card col-12 col-xs-6 col-md-3">
+                    <div class="product-item">
+                        <div class="hot-tag">HOT !
+                            <div class="angle"></div>
+                        </div>
+                        <div class="pic">
+                            <img src="./picture/product/product01.jpg" alt="法國長棍">
+                            <div class="product-btn">
+                                <a  class="detail" href="./product-content.html">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a class="shopping-cart" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                           </div>
+                        </div>
+                        <div class="txt">
+                            <h3>法國長棍</h3>
+                            <p class="price">NT$100</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="product-card col-12 col-xs-6 col-md-3">
+                    <div class="product-item">
+                        <div class="hot-tag">HOT !
+                            <div class="angle"></div>
+                        </div>
+                        <div class="pic">
+                            <img src="./picture/product/product03.jpg" alt="黑麥鄉村麵包">
+                            <div class="product-btn">
+                                <a  class="detail" href="./product-content.html">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a class="shopping-cart" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                           </div>
+                        </div>
+                        <div class="txt">
+                            <h3>黑麥鄉村麵包</h3>
+                            <p class="price">NT$85</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="product-card col-12 col-xs-6 col-md-3">
+                    <div class="product-item">
+                        <div class="hot-tag">HOT !
+                            <div class="angle"></div>
+                        </div>
+                        <div class="pic">
+                            <img src="./picture/product/product06.jpg" alt="歐式蔓越莓核桃">
+                            <div class="product-btn">
+                                <a  class="detail" href="./product-content.html">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a class="shopping-cart" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                           </div>
+                        </div>
+                        <div class="txt">
+                            <h3>歐式蔓越莓核桃</h3>
+                            <p class="price">NT$120</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- footer區域 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="./news.html">最新消息</a></li>
+                            <li><a href="./products.html">商品專區</a></li>
+                            <li><a href="./about.html">關於我們</a></li>
+                            <li><a href="./contact.html">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <div class="footer-logo">
+                        <img src="./picture/logo/logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-info">
+                        <div class="address">台北市中山區南京東路三段219號</div>
+                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>02-27120589</span>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <p>breadnbutter@gmail.com</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
+        </div>       
+    </footer>
+</body>
+</html>

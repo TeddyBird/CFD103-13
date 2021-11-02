@@ -1,0 +1,846 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* slogan-banner區 */
+.banner {
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.banner .slider img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: show 1.5s ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    top: 55%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+.slogan p {
+  font-family: "Klee One", cursive;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  line-height: 1.2;
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 1);
+}
+
+.slogan a.btn {
+  margin-top: 60px;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(102, 142, 104);
+  font-size: 28px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slogan a.btn:hover {
+  background-color: rgb(101, 80, 70);
+}
+
+@media screen and (max-width: 1024px) {
+  .slogan p {
+    font-size: 40px;
+  }
+
+  .slogan a.btn {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slogan p {
+    font-size: 28px;
+  }
+  .slogan a.btn {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
+}
+
+/* 最新消息 */
+.news {
+  background-color: rgb(240, 235, 234);
+}
+
+.news .container {
+  position: relative;
+}
+
+.news h2 {
+  font-family: "Klee One", cursive;
+  font-size: 48px;
+  font-weight: 600;
+  color: rgb(102, 142, 104);
+  position: absolute;
+  top: -34px;
+}
+
+.newspic-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.news-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+}
+
+.news-txt {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.news-title {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px dashed rgb(101, 80, 70);
+  line-height: 1.5;
+}
+
+.news-title time {
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.news-title h3 a {
+  color: rgb(185, 142, 81);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.news-title i {
+  font-size: 20px;
+  color: rgb(240, 156, 56);
+}
+
+.news-txt .more {
+  align-self: center;
+  border: none;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .news h2 {
+    font-size: 40px;
+    top: -26px;
+  }
+
+  .newspic-slider {
+    height: 350px;
+  }
+
+  .news-title {
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+
+  .news-txt .more {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .newspic-slider {
+    height: 300px;
+  }
+
+  .news-title time {
+    font-size: 20px;
+  }
+
+  .news-title h3 a {
+    font-size: 20px;
+  }
+}
+
+/* 熱銷商品 */
+.hot-product h2 {
+  font-family: "Klee One", cursive;
+  font-size: 40px;
+  font-weight: 600;
+  color: rgb(102, 142, 104);
+  text-align: center;
+  margin: 30px 0;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.basket {
+  display: none;
+}
+
+.basket img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.hot-product-slides {
+  width: 300%;
+  display: flex;
+}
+
+input[type="radio"] {
+  z-index: 100;
+  display: none;
+}
+
+.hot-product-group {
+  display: flex;
+  width: calc(100% - 60px);
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  margin: 0 30px;
+  transition: 0.5s transform ease-in-out;
+  position: relative;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(1):checked
+  ~ .hot-product-group {
+  transform: translatex(0%);
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(2):checked
+  ~ .hot-product-group {
+  transform: translatex(calc(-100% - 60px));
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(3):checked
+  ~ .hot-product-group {
+  transform: translatex(calc(-200% - 120px));
+}
+
+.navigator {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  width: 100%;
+  z-index: 30;
+  justify-content: space-between;
+  box-sizing: border-box;
+  display: none;
+}
+
+.navigator:nth-of-type(1) {
+  justify-content: flex-end;
+}
+
+.navigator:nth-of-type(3) {
+  justify-content: flex-start;
+}
+
+.navigator i {
+  font-size: 35px;
+  background-color: rgb(185, 142, 81);
+  color: white;
+  padding: 3px;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(1):checked
+  ~ .navigator:nth-of-type(1) {
+  display: flex;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(2):checked
+  ~ .navigator:nth-of-type(2) {
+  display: flex;
+}
+
+.hot-product-slides
+  input[type="radio"]:nth-of-type(3):checked
+  ~ .navigator:nth-of-type(3) {
+  display: flex;
+}
+
+.hot-product .item {
+  width: 80%;
+  margin: auto;
+}
+
+.hot-product .item img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.hot-product .txt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.medal {
+  width: 15%;
+  position: absolute;
+  top: 5%;
+  left: 0;
+}
+
+.medal img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.hot-product .txt h3 {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.hot-product .txt h3 a {
+  text-decoration: none;
+  color: rgb(240, 156, 56);
+  font-weight: 600;
+  font-size: 28px;
+  position: relative;
+}
+
+.hot-product .txt h3 a::after {
+  content: "";
+  background-image: url(../picture/hot-product/arrow1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  right: -70px;
+  top: -10px;
+  animation: pointer 1s ease-in-out infinite alternate;
+}
+
+@keyframes pointer {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(10px);
+    opacity: 0.4;
+  }
+}
+
+.hot-product .txt span {
+  display: block;
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right;
+  padding: 10px 0;
+}
+
+.hot-product .txt p {
+  line-height: 1.4;
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  flex-grow: 1;
+  padding: 10px 0;
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 576px) {
+  .wrap {
+    overflow: visible;
+  }
+
+  .hot-product h2 {
+    font-size: 48px;
+  }
+
+  .hot-product-slides {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(1):checked
+    ~ .navigator:nth-of-type(1) {
+    display: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(2):checked
+    ~ .navigator:nth-of-type(2) {
+    display: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(3):checked
+    ~ .navigator:nth-of-type(3) {
+    display: none;
+  }
+
+  .hot-product-group {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 60px);
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    margin: 30px;
+    transition: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(1):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(2):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product-slides
+    input[type="radio"]:nth-of-type(3):checked
+    ~ .hot-product-group {
+    transform: none;
+  }
+
+  .hot-product .item {
+    width: calc(40% - 30px);
+    margin: 0 30px 0 0;
+  }
+
+  .hot-product .txt {
+    width: 60%;
+  }
+
+  .medal {
+    width: 15%;
+    position: static;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hot-product-slides {
+    flex-direction: row;
+  }
+
+  .hot-product-group {
+    flex-direction: column-reverse;
+    width: calc(100% - 60px);
+    flex-grow: 1;
+    margin: 30px;
+  }
+
+  .hot-product .item {
+    width: 100%;
+    margin: 0;
+  }
+
+  .hot-product .txt {
+    width: 100%;
+  }
+
+  .medal {
+    width: 20%;
+    position: absolute;
+    top: -5%;
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .basket {
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding-top: 600px;
+  }
+
+  .basket img {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .hot-product-slides {
+    width: 100%;
+    display: block;
+  }
+
+  .hot-product-group {
+    width: 100%;
+    position: static;
+    margin: 0;
+    display: block;
+  }
+
+  .medal {
+    width: 15%;
+    position: static;
+  }
+
+  .hot-product .item {
+    width: 30%;
+    position: absolute;
+  }
+
+  .hot-product .item img {
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .hot-product .item1 {
+    bottom: 3%;
+    right: 20%;
+    transition: transform 1s;
+    z-index: -1;
+  }
+
+  .hot-product .item2 {
+    bottom: 4%;
+    left: 25%;
+    z-index: -3;
+    transition: transform 1s;
+  }
+
+  .hot-product .item3 {
+    bottom: 50px;
+    left: 38%;
+    z-index: -2;
+    transition: transform 1s;
+  }
+
+  .hot-product .txt {
+    width: 25%;
+    position: absolute;
+  }
+
+  .hot-product .txt h3 a {
+    font-size: 36px;
+  }
+
+  .hot-product .txt span {
+    font-size: 20px;
+  }
+
+  .hot-product .txt p {
+    font-size: 20px;
+  }
+
+  .hot-product .txt1 {
+    top: 10%;
+    right: 1%;
+  }
+
+  .hot-product .txt2 {
+    top: 13%;
+    left: 1%;
+  }
+
+  .hot-product .txt3 {
+    top: 3%;
+    left: 38%;
+  }
+
+  .hot-product .txt1:hover ~ .item1 {
+    transform: translate(50px, -150px);
+    z-index: -1;
+  }
+
+  .hot-product .txt2:hover ~ .item2 {
+    transform: translate(-40px, -140px);
+    z-index: -1;
+  }
+
+  .hot-product .txt3:hover ~ .item3 {
+    transform: translate(0, -170px);
+    z-index: -1;
+  }
+}
+
+/* 關於我們 */
+.about {
+  background-color: rgb(240, 235, 234);
+  margin: 50px 0 0 0;
+}
+
+.about .container {
+  position: relative;
+}
+
+.about h2 {
+  font-family: "Klee One", cursive;
+  font-size: 40px;
+  font-weight: 600;
+  color: rgb(102, 142, 104);
+  position: absolute;
+  top: -26px;
+}
+
+.about .row {
+  flex-direction: column;
+}
+
+.about-txt {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: justify;
+  justify-content: space-around;
+  position: relative;
+  left: -80%;
+  opacity: 0;
+  transition: all 1s 0.5s;
+}
+
+.about-txt p {
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  line-height: 2;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.about-txt a.more {
+  align-self: center;
+  border: none;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+a.more:hover {
+  background-color: rgb(101, 80, 70);
+}
+
+.about-pic {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: -80%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.about-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+@media screen and (min-width: 567px) {
+  .about h2 {
+    font-size: 48px;
+    top: -34px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about .row {
+    flex-direction: row-reverse;
+  }
+}
+
+/* 店家資訊 */
+.shop-name {
+  color: rgb(185, 142, 81);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.info {
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  text-align: center;
+  position: relative;
+  bottom: -80%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.info .address,
+.service-time,
+.tel,
+.email {
+  margin-bottom: 35px;
+}
+
+.info .tel span {
+  margin-left: 6px;
+}
+
+.info .email a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  margin-left: 6px;
+}
+
+.calendar {
+  position: relative;
+  bottom: -80%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px;
+  text-align: center;
+  empty-cells: hide;
+  font-size: 20px;
+}
+
+caption {
+  color: rgb(185, 142, 81);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+thead {
+  background-color: rgb(101, 80, 70);
+  color: #fff;
+}
+
+th {
+  padding: 10px 0;
+}
+
+td {
+  background-color: rgb(240, 235, 234);
+  padding: 10px 0;
+}
+
+.close-date {
+  background-color: rgb(102, 142, 104);
+  color: white;
+}
+
+.close-note {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.close-color {
+  width: 40px;
+  height: 24px;
+  background-color: rgb(102, 142, 104);
+  margin-right: 10px;
+}
+
+.close-text {
+  margin-right: 5px;
+  color: rgb(101, 80, 70);
+}
+
+@media screen and (min-width: 768px) {
+  .info {
+    text-align: left;
+  }
+}
+
+/* 地圖 */
+.map iframe {
+  width: 100%;
+  height: 30vh;
+}
+
+/* 回到頁首 */
+
+.pagetop {
+  width: 90px;
+  position: fixed;
+  right: 0px;
+  bottom: 200px;
+  cursor: pointer;
+  display: none;
+}
+
+.show-pagetop {
+  display: block;
+}
+
+.pagetop img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+img.hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.pagetop:hover .nohover {
+  opacity: 0;
+}
+
+.pagetop:hover .hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .pagetop {
+    display: none;
+  }
+
+  .show-pagetop {
+    display: none;
+  }
+}

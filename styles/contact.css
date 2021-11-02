@@ -1,0 +1,305 @@
+/* 開頭背景圖 */
+.head-banner {
+  width: 100%;
+  height: 30vh;
+}
+
+.head-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/*聯絡我們頁面 */
+.top-title {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.contact-page h2 {
+  background-color: rgb(101, 80, 70);
+  color: white;
+  display: inline-block;
+  font-size: 48px;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  padding: 10px 50px 20px;
+  position: absolute;
+  top: -44px;
+  overflow: hidden;
+}
+
+.contact-page h2::after {
+  content: "";
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background-image: url(../picture/background/wheat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 25px;
+  right: -5px;
+}
+
+.breadcrumb {
+  width: 100%;
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+
+.breadcrumb ol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.breadcrumb li {
+  padding: 0 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breadcrumb li + li::before {
+  content: ">";
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin-right: 10px;
+}
+
+.breadcrumb li:last-child a {
+  color: rgb(185, 142, 81);
+}
+
+.products-page .container {
+  margin: 80px auto;
+}
+
+/* 聯絡我們頁面 */
+.contact-page {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.contact-page p {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin: 60px 50px;
+  line-height: 1.5;
+}
+
+.wrap {
+  width: 100%;
+  display: flex;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(50% - 100px);
+  margin: 50px;
+  text-align: center;
+  background-color: rgb(185, 142, 81);
+  position: relative;
+}
+
+.contact-info::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 90%;
+  background-color: red;
+  top: 5px;
+  left: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+.contact-info::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 40px solid rgb(90, 68, 38);
+  border-left: 40px solid rgb(90, 68, 38);
+  border-right: 40px solid white;
+  border-bottom: 40px solid white;
+  bottom: 0;
+  right: 0;
+}
+
+.contact-info > .tel,
+.contact-info > .email,
+.contact-info > .address {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 30px;
+  padding: 0 30px;
+}
+
+.contact-info .tel span,
+.contact-info .email span {
+  word-break: break-all;
+}
+
+.contact-form {
+  width: 50%;
+  position: relative;
+}
+
+.contact-form::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border: 1px solid rgb(101, 80, 70);
+  left: -2px;
+}
+
+.contact-form form {
+  width: calc(100% - 40px);
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input-group {
+  width: 100%;
+}
+
+.contact-form label {
+  font-size: 24px;
+  color: rgb(101, 80, 70);
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.contact-form input {
+  width: calc(100% - 20px);
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(101, 80, 70);
+}
+
+.contact-form textarea {
+  width: calc(100% - 20px);
+  resize: none;
+  padding: 8px;
+  font-size: 24px;
+  border: 1px solid rgb(101, 80, 70);
+  border-radius: 5px;
+  outline: none;
+  height: 150px;
+}
+
+.contact-form button {
+  align-self: center;
+  font-size: 24px;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: rgb(101, 80, 70);
+}
+
+@media screen and (max-width: 950px) {
+  .contact-info > .tel,
+  .contact-info > .email,
+  .contact-info > .address {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .contact-page h2 {
+    background-color: rgb(101, 80, 70);
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    font-family: "Klee One", cursive;
+    font-weight: 600;
+    padding: 10px 50px 20px;
+    position: absolute;
+    top: -38px;
+  }
+
+  .contact-info {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+
+  .contact-info::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 20px solid rgb(90, 68, 38);
+    border-left: 20px solid rgb(90, 68, 38);
+    border-right: 20px solid white;
+    border-bottom: 20px solid white;
+    bottom: 0;
+    right: 0;
+  }
+
+  .contact-info > .tel,
+  .contact-info > .email,
+  .contact-info > .address {
+    font-size: 20px;
+  }
+
+  .contact-info .address {
+    margin-top: 100px;
+  }
+
+  .contact-info .email {
+    margin-bottom: 100px;
+  }
+
+  .contact-info .email span {
+    white-space: normal;
+  }
+
+  .contact-form {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    position: relative;
+  }
+
+  .contact-form::before {
+    display: none;
+  }
+
+  .contact-form label {
+    font-size: 20px;
+  }
+
+  .contact-form button {
+    font-size: 20px;
+  }
+
+  .contact-form button:hover {
+    background-color: rgb(102, 142, 104);
+  }
+}

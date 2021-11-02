@@ -1,0 +1,249 @@
+/* 開頭背景圖 */
+.head-banner {
+  width: 100%;
+  height: 30vh;
+}
+
+.head-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* 最新消息頁面 */
+.top-title {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.news-page h2 {
+  background-color: rgb(101, 80, 70);
+  color: white;
+  display: inline-block;
+  font-size: 40px;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  padding: 10px 50px 20px;
+  position: absolute;
+  top: -38px;
+  overflow: hidden;
+}
+
+.news-page h2::after {
+  content: "";
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background-image: url(../picture/background/wheat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 25px;
+  right: -5px;
+}
+
+.breadcrumb {
+  width: 100%;
+  padding: 50px 0 0 0;
+  box-sizing: border-box;
+}
+
+.breadcrumb ol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.breadcrumb li {
+  padding: 0 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breadcrumb li + li::before {
+  content: ">";
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  margin-right: 10px;
+}
+
+.breadcrumb li:last-child a {
+  color: rgb(185, 142, 81);
+}
+
+/* 消息區域 */
+main {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.news-card {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.news-card .pic {
+  width: 100%;
+  height: 200px;
+}
+
+.news-card .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.news-card .txt {
+  width: 100%;
+  background-color: rgb(240, 235, 234);
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card .txt time {
+  font-size: 18px;
+  color: rgb(101, 80, 70);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.news-card .txt h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(185, 142, 81);
+  margin-bottom: 30px;
+}
+
+.news-more {
+  color: white;
+  background-color: rgb(102, 142, 104);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px;
+  align-self: center;
+}
+
+.news-more:hover {
+  background-color: rgb(102, 142, 104);
+}
+
+@media screen and (min-width: 567px) {
+  .news-card .pic {
+    height: 300px;
+  }
+
+  .news-card .txt h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(185, 142, 81);
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .news-page h2 {
+    background-color: rgb(101, 80, 70);
+    color: white;
+    display: inline-block;
+    font-size: 48px;
+    font-family: "Klee One", cursive;
+    font-weight: 600;
+    padding: 10px 50px 20px;
+    position: absolute;
+    top: -44px;
+  }
+
+  .news-card {
+    width: calc(100% - 30px);
+    display: flex;
+    align-items: flex-end;
+    margin-top: 60px;
+    padding: 0 15px;
+  }
+
+  .news-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .news-card .pic {
+    width: 55%;
+    height: 400px;
+  }
+
+  .news-card:nth-child(odd) .pic {
+    margin-right: -10%;
+  }
+
+  .news-card:nth-child(even) .pic {
+    margin-left: -10%;
+  }
+
+  .news-card .txt {
+    width: 55%;
+    background-color: rgb(240, 235, 234);
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:nth-child(even) .txt {
+    text-align: left;
+  }
+
+  .news-card .txt time {
+    font-size: 18px;
+    color: rgb(101, 80, 70);
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .news-card .txt h3 {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgb(185, 142, 81);
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .news-card {
+    width: 100%;
+    padding: 0;
+  }
+
+  .news-more:hover {
+    background-color: rgb(101, 80, 70);
+  }
+}
+
+/* 分頁列表 */
+.page {
+  width: 100%;
+  margin: 50px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: rgb(101, 80, 70);
+  font-size: 24px;
+  margin: 0 20px;
+}
+
+.pagination li a.active {
+  color: rgb(185, 142, 81);
+}

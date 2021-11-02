@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <title>Bread&Butter烘焙坊 | 聯絡我們</title>
+</head>
+<body>
+    <!-- header區域 -->
+    <input type="checkbox" id="menu_control">
+    <header>
+        <h1 class="logo">
+            <a href="./index.html">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
+            </a>
+        </h1>
+
+        <!-- 漢堡 -->
+        <label for="menu_control" class="menu_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="first-nav">
+                <li><a href="./news.html">最新消息</a></li>
+                <li>
+                    <a href="./products.html" class="checkable">商品專區</a>
+                    <input type="checkbox" id="check_list">
+                    <label for="check_list" class="list_btn"></label>
+                    <ul class="second-nav">
+                        <li><a href="./products.html">麵包系列</a></li>
+                        <li><a href="./products.html">蛋糕系列</a></li>
+                        <li><a href="./products.html">手工餅乾</a></li>
+                    </ul>
+                </li>
+                <li><a href="./about.html">關於我們</a></li>
+                <li><a href="./contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="nav-icon">
+                <a href="./login.html"><i class="fas fa-user"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+        <!-- 開頭背景圖 -->
+    <div class="head-banner">
+        <img src="./picture/banner/banner4.jpg" alt="banner">
+    </div>
+
+    <!-- 聯絡我們頁面 -->
+    <main  class= "contact-page">
+        <div class="top-title">
+            <h2>聯絡我們</h2>
+             <div class="breadcrumb">
+                <ol>
+                    <li><a href="./index.html">首頁</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <p>若您想與我們聯繫，歡迎透過以下表單、來電、電子郵件，我們會盡快為您服務，謝謝!</p>
+        
+        <div class="wrap">
+            <div class="contact-info">
+                <div class="address">台北市中山區南京東路三段219號</div>
+                <div class="tel">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>02-27120589</span>
+                </div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i>
+                    <span>breadnbutter@gmail.com</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="get">
+                    <div class="input-group">
+                        <label for="name">姓名</label><br>
+                        <input type="text" name="user-name" id="name"><br>
+                    </div>
+                    <div class="input-group">
+                        <label for="tele">電話</label><br>
+                        <input type="tel" name="tel" id="tele"><br>
+                    </div>
+                    <div class="input-group">
+                        <label for="e-mail">電子郵件</label><br>
+                        <input type="email" name="email" id="e-mail"><br>
+                    </div>
+                    <div class="input-group">
+                        <label for="request">需求說明</label><br>
+                        <textarea name="request" id="requeat"></textarea>
+                    </div>
+                    <button type="submit">確認送出</button>
+                </form>
+            </div>
+        </div>
+    </main>
+     <!-- footer區域 -->
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="./news.html">最新消息</a></li>
+                            <li><a href="./products.html">商品專區</a></li>
+                            <li><a href="./about.html">關於我們</a></li>
+                            <li><a href="./contact.html">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <div class="footer-logo">
+                        <img src="./picture/logo/logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-info">
+                        <div class="address">台北市中山區南京東路三段219號</div>
+                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>02-27120589</span>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <p>breadnbutter@gmail.com</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
+        </div>       
+    </footer>
+</body>
+</html>

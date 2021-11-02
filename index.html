@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script src="./JS/index.js"></script>
+    <title>Bread&Butter烘焙坊 | 首頁</title>
+</head>
+<body>
+    <!-- header區域 -->
+    <input type="checkbox" id="menu_control">
+    <header>
+        <h1 class="logo">
+            <a href="./index.html">
+                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
+            </a>
+        </h1>
+        <!-- 漢堡 -->
+        <label for="menu_control" class="menu_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="first-nav">
+                <li><a href="./news.html">最新消息</a></li>
+                <li>
+                    <a href="./products.html" class="checkable">商品專區</a>
+                    <input type="checkbox" id="check_list">
+                    <label for="check_list" class="list_btn"></label>
+                    <ul class="second-nav">
+                        <li><a href="./products.html">麵包系列</a></li>
+                        <li><a href="./products.html">蛋糕系列</a></li>
+                        <li><a href="./products.html">手工餅乾</a></li>
+                    </ul>
+                </li>
+                <li><a href="./about.html">關於我們</a></li>
+                <li><a href="./contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="nav-icon">
+                <a href="./login.html"><i class="fas fa-user"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="shopcart-alert">0</div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- slogan-banner區 -->
+    <div class="banner" >
+        <div class="slider">
+            <img src="./picture/banner/banner1.jpg" alt="banner">
+        </div>
+        <div class="slogan">
+            <p>新鮮出爐麵包，<br>
+            每一口都是幸福味道</p>
+            <a class="btn" href="./products.html">立刻購買</a>
+        </div>
+    </div>
+
+    <!-- 最新消息 -->
+    <section class="news">
+        <div class="container">
+            <h2>最新消息</h2>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="newspic-slider">
+                        <img  class="news-pic" src="./picture/news/news01.jpg" alt="雙11">
+                        <img class="news-pic" src="./picture/news/news02.jpg" alt="聖誕節">
+                        <img class="news-pic" src="./picture/news/news03.jpg" alt="中秋節">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="news-txt">
+                        <div class="news-list">
+                            <div class="news-title">
+                                <time datetime="2021-10-23">2021.10.23</time>
+                                <h3>
+                                    <a href="./news.html">雙11光棍節別傷心，當日法棍買一送一</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
+                            </div>
+                            <div class="news-title">
+                                <time datetime="2021-10-16">2021.10.16</time>
+                                <h3>
+                                    <a href="./news.html">聖誕蛋糕預購開始囉!</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
+                            </div>
+                            <div class="news-title">
+                                <time datetime="2021-10-01">2021.10.01</time>
+                                <h3>
+                                    <a href="./news.html">中秋節本店公休一天~</a>
+                                    <i class="fas fa-caret-left"></i>
+                                </h3>
+                            </div>
+                        </div>
+                        <a class="more" href="./news.html">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 熱銷產品 -->
+    <section class="hot-product">
+        <h2>熱銷商品</h2>
+        <div class="wrap">
+            <div class="basket">
+                <img src="./picture/hot-product/basket.png" alt="breadbasket">
+            </div>
+            <div class="hot-product-slides">
+                <input type="radio" id="control-1" name="control" checked>
+                <input type="radio" id="control-2" name="control">
+                <input type="radio" id="control-3" name="control">
+
+                <div class="navigator slide-1">
+                    <label for="control-2">
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                </div>
+                  
+                <div class="navigator slide-2">
+                    <label for="control-1">
+                        <i class="fas fa-chevron-left"></i>
+                    </label>
+                    <label for="control-3">
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                </div>
+                  
+                <div class="navigator slide-3">
+                    <label for="control-2">
+                        <i class="fas fa-chevron-left"></i>
+                    </label>
+
+                </div>
+                
+                <div class="hot-product-group">
+                    <div class="txt txt3">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal1.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="./product-content.html">黑麥鄉村麵包</a>
+                        </h3>
+                        <span>/ NT$85</span>
+                        <p>精選德國烘烤過的大麥芽粉，具有其特殊香氣與天然深色澤。</p>
+                    </div>
+                    <div class="item item3">
+                        <img src="./picture/hot-product/hot-bread3.png" alt="黑麥鄉村麵包">
+                    </div>
+                </div>
+                <div class="hot-product-group">
+                    <div class="txt txt1">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal2.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="./product-content.html">法國長棍</a>
+                            <!-- <i class="fas fa-hand-point-up"></i> -->
+                        </h3>
+                        <span>/ NT$100</span>
+                        <p>法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。</p>
+                    </div>
+                    <div class="item item1">
+                        <img src="./picture/hot-product/hot-bread1.png" alt="法國長棍">
+                    </div>
+                </div>
+                <div class="hot-product-group">
+                    <div class="txt txt2">
+                        <div class="medal">
+                            <img src="./picture/hot-product/medal3.png" alt="meadl">
+                        </div>
+                        <h3>
+                            <a href="./product-content.html">歐式蔓越莓核桃</a>
+                            <!-- <i class="fas fa-hand-point-up"></i> -->
+                        </h3>
+                        <span>/ NT$120</span>
+                        <p>獨家歐式老麵糰，表皮具韌度、麵心富有嚼勁，麥香混合乾果和堅果酥脆香。</p>
+                    </div>
+                    <div class="item item2">
+                        <img src="./picture/hot-product/hot-bread2.png" alt="歐式蔓越莓核桃">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- 關於我們 -->
+    <section class="about">
+        <div class="container">
+            <h2>關於我們</h2>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="about-pic">
+                        <img src="./picture/shop/shop.jpg" alt="Bread&Butter店面
+                        ">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="about-txt">
+                        <p><em>"Bread and Butter"</em>是英語的俚語，意味著生活不可或缺的人事物，那就是中文裡柴米油鹽吧！「麵包與奶油,單純而樸實」的概念。<br>
+                        我們選擇了費工費時的低溫發酵每日打麵糰烤焙因為我們堅信「時間是最好的調味料」，我們不用多高級的食材相信純粹新鮮無毒的食物才是根本，「自己愛吃，才給客人吃！」</p>
+                        <a class="more" href="./about.html">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 店家資訊 -->
+    <section class="shop-info">
+        <h2 style="text-indent: -10000px; position: absolute;">店家資訊</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="info">
+                        <div class="shop-name">Bread & Butter 烘焙坊</div>
+                        <div class="address">台北市中山區南京東路三段219號</div>
+                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>02-27120589</span>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <a href="">breadnbutter@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="calendar">
+                        <table>
+                            <caption>10月營業日曆</caption>
+                            <thead>
+                                <tr>
+                                    <th>日</th>
+                                    <th>一</th>
+                                    <th>二</th>
+                                    <th>三</th>
+                                    <th>四</th>
+                                    <th>五</th>
+                                    <th>六</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>31</td>
+                                    <td class="empty"></td>
+                                    <td class="empty"></td>
+                                    <td class="empty"></td>
+                                    <td class="empty"></td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="close-date">4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td class="close-date">10</td>
+                                    <td class="close-date">11</td>
+                                    <td>12</td>
+                                    <td>13</td>
+                                    <td>14</td>
+                                    <td>15</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td class="close-date">18</td>
+                                    <td>19</td>
+                                    <td>20</td>
+                                    <td>21</td>
+                                    <td>22</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>24</td>
+                                    <td class="close-date">25</td>
+                                    <td>26</td>
+                                    <td>27</td>
+                                    <td>28</td>
+                                    <td>29</td>
+                                    <td>30</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                        <div class="close-note">
+                            <div class="close-color"></div>
+                            <div class="close-text">休息日</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 地圖 -->
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045422!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1633399311346!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+        <!-- 回到頁首 -->
+    <div class="pagetop">
+        <img class="nohover" src="./picture/pagetop.png" alt="pagetop">
+        <img  class="hover" src="./picture/pagetop-hover.png" alt="pagetop">
+    </div>
+
+    <!-- footer區域 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="./news.html">最新消息</a></li>
+                            <li><a href="./products.html">商品專區</a></li>
+                            <li><a href="./about.html">關於我們</a></li>
+                            <li><a href="./contact.html">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <div class="footer-logo">
+                        <img src="./picture/logo/logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-info">
+                        <div class="address">台北市中山區南京東路三段219號</div>
+                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>02-27120589</p>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <p>breadnbutter@gmail.com</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
+        </div>       
+    </footer>
+</body>
+</html>
