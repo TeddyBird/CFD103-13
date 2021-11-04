@@ -1,5 +1,5 @@
 function showTxt(){
-    let txts = document.querySelectorAll(".feature-content");
+    let txts = document.querySelectorAll(".feature-content"); 
     for(let i = 0; i < txts.length; i++){
         if(document.documentElement.scrollTop > (1050 + i*420)){
             txts[i].classList.add("showdetail");
