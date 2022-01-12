@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/products.css">
     <script src="./JS/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js" integrity="sha512-XdUZ5nrNkVySQBnnM5vzDqHai823Spoq1W3pJoQwomQja+o4Nw0Ew1ppxo5bhF2vMug6sfibhKWcNJsG8Vj9tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Bread&Butter烘焙坊 | 商品專區</title>
 </head>
 <body>
@@ -65,7 +66,7 @@
     </div>
 
     <!-- 商品專區頁面 -->
-    <main class="products-page">
+    <main class="products-page" id="app">
         <div class="top-title">
             <h2>商品專區</h2>
              <div class="breadcrumb">
@@ -84,24 +85,29 @@
                         <ul class="first-sort">
                             <li><h4>麵包系列</h4>
                                 <ul class="second-sort">
-                                     <li><a href="#">麵包總覽</a></li>
-                                     <li><a href="#">法式麵包</a></li>
-                                     <li><a href="#">歐式麵包</a></li>
-                                     <li><a href="#">丹麥可頌</a></li>
+                                     <li><a href="#" @click.prevent="showItem = '麵包總覽'">麵包總覽</a></li>
+                                     <li><a href="#" @click.prevent="showItem = '法式麵包'">法式麵包</a></li>
+                                     <li><a href="#" @click.prevent="showItem = '歐式麵包'">歐式麵包</a></li>
+                                     <li><a href="#" @click.prevent="showItem = '丹麥可頌'">丹麥可頌</a></li>
                                 </ul>
                             </li>
                             <li><h4>蛋糕系列</h4>
                                 <ul class="second-sort">
-                                    <li><a href="#">蛋糕總覽</a></li>
-                                    <li><a href="#">圓形蛋糕</a></li>
-                                    <li><a href="#">長條蛋糕</a></li>
-                                    <li><a href="#">切片蛋糕</a></li>
+                                    <li><a href="#" @click.prevent="showItem = '蛋糕總覽'">蛋糕總覽</a></li>
+                                    <li><a href="#" @click.prevent="showItem = '圓形蛋糕'">圓形蛋糕</a></li>
+                                    <li><a href="#" @click.prevent="showItem = '長條蛋糕'">長條蛋糕</a></li>
+                                    <li><a href="#" @click.prevent="showItem = '切片蛋糕'">切片蛋糕</a></li>
                                </ul>
                             </li>
                             <li><h4>手工餅乾</h4>
                                 <ul class="second-sort">
-                                    <li><a href="#">餅乾總覽</a></li>
+                                    <li><a href="#" @click.prevent="showItem = '餅乾總覽'">餅乾總覽</a></li>
                                </ul>
+                            </li>
+                            <li><h4>全部商品</h4>
+                                <ul class="second-sort">
+                                     <li><a href="#" @click.prevent="showItem = '全部'">商品總覽</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </aside>
@@ -109,15 +115,18 @@
                 <!-- 商品區 -->
                 <div class="col-12 col-md-9">
                     <ul class="row">
-                        <li class="product-card col-12 col-xs-6 col-md-4">
+                        <li class="product-card col-12 col-xs-6 col-md-4"
+                        v-for="(item,index) in filter"
+                        :key="item.name"
+                        >
                             <div class="product-item">
-                                <div class="hot-tag">HOT !
+                                <div v-if="item.hotSale == true" class="hot-tag">HOT !
                                     <div class="angle"></div>
                                 </div>
                                 <div class="pic">
-                                    <img src="./picture/product/product01.jpg" alt="法國長棍">
+                                    <img :src="item.img[0]" :alt="item.name">
                                     <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
+                                        <a  class="detail" :href="`./product-content.html?id=${item.id}`">
                                             <i class="fas fa-search"></i>
                                         </a>
                                         <a class="shopping-cart" href="#">
@@ -126,150 +135,8 @@
                                     </div>
                                 </div>
                                 <div class="txt">
-                                    <h3>法國長棍</h3>
-                                    <p class="price">NT$100</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="hot-tag">HOT !
-                                    <div class="angle"></div>
-                                </div>
-                                <div class="pic">
-                                    <img src="./picture/product/product02.jpg" alt="法式可可">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>法式可可</h3>
-                                    <p class="price">NT$90</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="hot-tag">HOT !
-                                    <div class="angle"></div>
-                                </div>
-                                <div class="pic">
-                                    <img src="./picture/product/product03.jpg" alt="黑麥鄉村麵包">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>黑麥鄉村麵包</h3>
-                                    <p class="price">NT$85</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="pic">
-                                    <img src="./picture/product/product04.jpg" alt="黑麥穀物核桃吐司">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>黑麥穀物核桃吐司</h3>
-                                    <p class="price">NT$70</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="pic">
-                                    <img src="./picture/product/product05.jpg" alt="法式巴西里蒜">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>法式巴西里蒜</h3>
-                                    <p class="price">NT$100</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="hot-tag">HOT !
-                                    <div class="angle"></div>
-                                </div>
-                                <div class="pic">
-                                    <img src="./picture/product/product06.jpg" alt="歐式蔓越莓核桃">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>歐式蔓越莓核桃</h3>
-                                    <p class="price">NT$95</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="pic">
-                                    <img src="./picture/product/product07.jpg" alt="義大利香草麵包">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>義大利香草麵包</h3>
-                                    <p class="price">NT$70</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product-card col-12 col-xs-6 col-md-4">
-                            <div class="product-item">
-                                <div class="pic">
-                                    <img src="./picture/product/product08.jpg" alt="楓糖可頌">
-                                    <div class="product-btn">
-                                        <a  class="detail" href="./product-content.html">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a class="shopping-cart" href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    <h3>楓糖可頌</h3>
-                                    <p class="price">NT$30</p>
+                                    <h3>{{item.name}}</h3>
+                                    <p class="price">NT${{item.price}}</p>
                                 </div>
                             </div>
                         </li>
@@ -318,15 +185,206 @@
             <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
         </div>       
     </footer>
-<!-- 
     <script>
-        let checkBtn = document.querySelectorAll(".first-sort > li h4");
-
-        for(i=0; i< checkBtn.length; i++){
-            checkBtn[i].addEventListener("click",function(){
-            this.classList.toggle("active");
-         },false )
-        }
-    </script> -->
+            Vue.config.devtools = true ;
+            new Vue({
+            el: '#app',
+            data: {  
+                showItem:"全部",
+                products:[
+                   {
+                       id:1,
+                       name:"法國長棍",
+                       category:"麵包",
+                       category2:"法式麵包",
+                       hotSale:true,
+                       vegan: true,
+                       ingredient:"麵粉、鹽、酵母、水",
+                       preserve:"常溫3天，冷凍14天",
+                       content:"法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。",
+                       nutrition:"./picture/nutrition/product-nutrition01.jpg",
+                       price:100,
+                       img:["./picture/product/product01.jpg","./picture/product/product01-2.jpg"],
+                   },
+                   {
+                       id:2,
+                       name:"法式可可",
+                       category:"麵包",
+                       category2:"法式麵包",
+                       hotSale:true,
+                       vegan: true,
+                       ingredient:"麵粉、鹽、酵母、水、可可粉、水滴巧克力",
+                       preserve:"冷藏2天、冷凍14天",
+                       content:"香濃淡甜的法國可可風味，可讓初嚐歐法外脆內Q麵包者開始嚐鮮入門。",
+                       nutrition:"./picture/nutrition/product-nutrition02.jpg",
+                       price:90,
+                       img:["./picture/product/product02.jpg","./picture/product/product02-2.jpg"],
+                   },
+                   {
+                       id:3,
+                       name:"黑麥鄉村麵包",
+                       category:"麵包",
+                       category2:"歐式麵包",
+                       hotSale:true,
+                       vegan: true,
+                       ingredient:"麵粉、德國烘烤過大麥芽粉、葡萄乾、核桃",
+                       preserve:"冷藏2天、冷凍14天",
+                       content:"精選德國烘烤過的大麥芽粉，具有其特殊香氣與天然深色澤。",
+                       nutrition:"./picture/nutrition/product-nutrition03.jpg",
+                       price:85,
+                       img:["./picture/product/product03.jpg"],
+                   },
+                   {
+                       id:4,
+                       name:"黑麥穀物核桃吐司",
+                       category:"麵包",
+                       category2:"歐式麵包",
+                       hotSale:false,
+                       vegan: true,
+                       ingredient:"德國黑麥穀物粉、核桃、英國切達乳酪絲",
+                       preserve:"冷藏2天、冷凍14天",
+                       content:"採用德國進口黑麥穀物粉，加入高比例核桃及七種穀類。麵團不加一滴水，使用多達43%鮮奶，表皮烘烤至脆感、內部及其柔軟，營造多層次口感。",
+                       nutrition:"./picture/nutrition/product-nutrition04.jpg",
+                       price:70,
+                       img:["./picture/product/product04.jpg"],
+                   },
+                   {
+                       id:5,
+                       name:"法式巴西里蒜",
+                       category:"麵包",
+                       category2:"法式麵包",
+                       hotSale:false,
+                       vegan: false,
+                       ingredient:"自製大蒜醬、巴西里葉",
+                       preserve:"冷藏2天、冷凍14天",
+                       content:"巴西里香草搭配自製大蒜醬。",
+                       nutrition:"./picture/nutrition/product-nutrition05.jpg",
+                       price:100,
+                       img:["./picture/product/product05.jpg","./picture/product/product05-2.jpg"],
+                   },
+                   {
+                       id:6,
+                       name:"歐式蔓越莓核桃",
+                       category:"麵包",
+                       category2:"歐式麵包",
+                       hotSale:true,
+                       vegan: true,
+                       ingredient:"蔓越莓、核桃、老麵",
+                       preserve:"冷藏2天、冷凍14天",
+                       content:"獨家歐式老麵糰，表皮具韌度、麵心富有嚼勁，麥香混合乾果和堅果酥脆香。",
+                       nutrition:"./picture/nutrition/product-nutrition06.jpg",
+                       price:95,
+                       img:["./picture/product/product06.jpg","./picture/product/product06-2.jpg"],
+                   },
+                   {
+                       id:7,
+                       name:"檸檬重乳酪條",
+                       category:"蛋糕",
+                       category2:"長條蛋糕",
+                       hotSale:true,
+                       vegan: false,
+                       ingredient:"台產無毒綠檸檬、澳洲Cream Cheese",
+                       preserve:"冷藏3天",
+                       content:"以在地整顆檸檬﹐含綠皮磨屑﹐檸檬原汁拌入天然乳酪﹐搭配手工自製餅乾底﹐酸甜綿密，讓人一口接一口的人氣點心！",
+                       nutrition:"./picture/nutrition/product-nutrition07.jpg",
+                       price:95,
+                       img:["./picture/product/product07.jpg"],
+                   },
+                   {
+                       id:8,
+                       name:"伯爵茶蘋果磅蛋糕",
+                       category:"蛋糕",
+                       category2:"長條蛋糕",
+                       hotSale:false,
+                       vegan: true,
+                       ingredient:"伯爵紅茶、天然發酵奶油、動物性鮮奶油、蘋果",
+                       preserve:"常溫7天",
+                       content:"傳統磅蛋糕的單純風味，加入斯里蘭卡伯爵紅茶與手炒蜜蘋果，茶香融入奶油、濃醇蛋香，口感清甜綿密。",
+                       nutrition:"./picture/nutrition/product-nutrition08.jpg",
+                       price:120,
+                       img:["./picture/product/product08.jpg","./picture/product/product08-2.jpg"],
+                   },
+                   {
+                       id:9,
+                       name:"完熟乳酪",
+                       category:"蛋糕",
+                       category2:"圓形蛋糕",
+                       hotSale:false,
+                       vegan: true,
+                       ingredient:"乳酪、天然鮮奶油",
+                       preserve:"冷藏3天",
+                       content:"完全不含小麥麵粉，並以自然食材與乳酪完全融合呈現，色香味最佳的完熟狀態、雲朵般綿密的口感。",
+                       nutrition:"./picture/nutrition/product-nutrition09.jpg",
+                       price:150,
+                       img:["./picture/product/product09.jpg","./picture/product/product09-2.jpg"],
+                   },
+                   {
+                       id:10,
+                       name:"完桂圓燕麥餅",
+                       category:"餅乾",
+                       category2:"餅乾",
+                       hotSale:false,
+                       vegan: true,
+                       ingredient:"龍眼乾、燕麥",
+                       preserve:"常溫60天",
+                       content:"手作餅乾加入燕麥片和核桃，多層次的口感伴隨桂圓乾香氣，搭配咖啡、茶品一起享用，是最幸福的享受。",
+                       nutrition:"./picture/nutrition/product-nutrition10.jpg",
+                       price:150,
+                       img:["./picture/product/product10.png"],
+                   },
+                   {
+                       id:11,
+                       name:"小可頌",
+                       category:"麵包",
+                       category2:"丹麥可頌",
+                       hotSale:false,
+                       vegan: true,
+                       ingredient:"蛋、奶油",
+                       preserve:"冷藏2天、冷凍14天​",
+                       content:"18層丹麥麵糰推疊出香脆酥皮。。",
+                       nutrition:"./picture/nutrition/product-nutrition11.jpg",
+                       price:20,
+                       img:["./picture/product/product11.jpg","./picture/product/product11-2.jpg"],
+                   },
+               ],
+                  
+            },
+            computed:{
+                filter(){
+                    if(this.showItem == "全部"){
+                        return this.products;
+                    }else if(this.showItem == "麵包總覽"){
+                        let arr = this.products.filter(item=> item.category == "麵包");
+                        return arr;
+                    }else if(this.showItem == "法式麵包"){
+                        let arr = this.products.filter(item=> item.category2 == "法式麵包");
+                        return arr;
+                    }else if(this.showItem == "歐式麵包"){
+                        let arr = this.products.filter(item=> item.category2 == "歐式麵包");
+                        return arr;
+                    }else if(this.showItem == "丹麥可頌"){
+                        let arr = this.products.filter(item=> item.category2 == "丹麥可頌");
+                        return arr;
+                    }else if(this.showItem == "蛋糕總覽"){
+                        let arr = this.products.filter(item=> item.category == "蛋糕");
+                        return arr;
+                    }else if(this.showItem == "圓形蛋糕"){
+                        let arr = this.products.filter(item=> item.category2 == "圓形蛋糕");
+                        return arr;
+                    }else if(this.showItem == "長條蛋糕"){
+                        let arr = this.products.filter(item=> item.category2 == "長條蛋糕");
+                        return arr;
+                    }else if(this.showItem == "切片蛋糕"){
+                        let arr = this.products.filter(item=> item.category2 == "切片蛋糕");
+                        return arr;
+                    }else if(this.showItem == "餅乾總覽"){
+                        let arr = this.products.filter(item=> item.category == "餅乾");
+                        return arr;
+                    }
+                },
+            },
+    
+        });
+    </script>
 </body>
 </html>
