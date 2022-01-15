@@ -178,7 +178,9 @@
 
 .Kraftpaper {
   width: 100%;
-  background-image: url(../picture/background/Kraftpaper.jpg);
+  background-image: url(../picture/background/Kraftpaper.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
 }

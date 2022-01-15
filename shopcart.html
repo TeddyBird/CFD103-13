@@ -5,21 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+TC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/shopcart.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js" integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Bread&Butter烘焙坊 | 聯絡我們</title>
+    <title>購物車 | 商品專區</title>
 </head>
 <body>
     <div id="app">
-        <!-- header區域 -->
+         <!-- header區域 -->
         <input type="checkbox" id="menu_control">
         <header>
             <h1 class="logo">
@@ -27,7 +23,7 @@
                     <img src="./picture/logo/logo02.png" alt="Bread&Butter">
                 </a>
             </h1>
-
+    
             <!-- 漢堡 -->
             <label for="menu_control" class="menu_btn">
                 <span></span>
@@ -60,61 +56,53 @@
             </nav>
         </header>
 
-            <!-- 開頭背景圖 -->
+        <!-- 開頭背景圖 -->
         <div class="head-banner">
-            <img src="./picture/banner/banner4.jpg" alt="banner">
+            <img src="./picture/banner/banner3.jpg" alt="banner">
         </div>
 
-        <!-- 聯絡我們頁面 -->
-        <main  class= "contact-page">
-            <div class="top-title">
-                <h2>聯絡我們</h2>
-                <div class="breadcrumb">
-                    <ol>
-                        <li><a href="./index.html">首頁</a></li>
-                        <li><a href="#">聯絡我們</a></li>
-                    </ol>
-                </div>
-            </div>
-
-            <p>若您想與我們聯繫，歡迎透過以下表單、來電、電子郵件，我們會盡快為您服務，謝謝!</p>
-            
-            <div class="wrap">
-                <div class="contact-info">
-                    <div class="address">台北市中山區南京東路三段219號</div>
-                    <div class="tel">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>02-27120589</span>
-                    </div>
-                    <div class="email">
-                        <i class="fas fa-envelope"></i>
-                        <span>breadnbutter@gmail.com</span>
+        <!-- 購物車區 -->
+        <main class="shopcart-page">
+            <div class="container">
+                <div class="item-list">
+                    <div class="bg-section"></div>
+                    <div class="cart-item" v-for="(item, index) in shopCartList"
+                    :key="item.id"
+                    >
+                        <div class="item-list-pic">
+                            <img :src="item.img[0]" :alt="item.name">
+                        </div>
+                        <div class="item-info">
+                            <h3>{{item.name}}</h3>
+                            <div class="counter">
+                                <div class="count">
+                                    <button class="minus" @click="minusNum(index)">-</button>
+                                    <span class="item-count">{{item.count}}</span>
+                                    <button class="plus" @click="plusNum(index)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="delete" @click="deleteItem(index)">X</button>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form action="#" method="get">
-                        <div class="input-group">
-                            <label for="name">姓名</label><br>
-                            <input type="text" name="user-name" id="name"><br>
+                <section class="total-section">
+                    <h2>購物金額</h2>
+                    <div class="item-sum" v-for="(item, index) in shopCartList"
+                    :key="item.id"
+                    >
+                        <div class="item-sum-info">
+                            <h3>{{item.name}}</h3>
+                            <span>NT$ {{item.price}}</span>
+                            <span>x {{item.count}}</span>
                         </div>
-                        <div class="input-group">
-                            <label for="tele">電話</label><br>
-                            <input type="tel" name="tel" id="tele"><br>
-                        </div>
-                        <div class="input-group">
-                            <label for="e-mail">電子郵件</label><br>
-                            <input type="email" name="email" id="e-mail"><br>
-                        </div>
-                        <div class="input-group">
-                            <label for="request">需求說明</label><br>
-                            <textarea name="request" id="requeat"></textarea>
-                        </div>
-                        <button type="submit">確認送出</button>
-                    </form>
-                </div>
+                        <span class="sum">小計 NT$ {{item.count * item.price}}</span>
+                    </div>
+                    <span class="total">總計 NT$ {{total}}</span>
+                    <button>結帳</button>
+                </section>
             </div>
         </main>
-        <!-- footer區域 -->
+         <!-- footer區域 -->
         <footer>
             <div class="container">
                 <div class="row">
@@ -155,35 +143,69 @@
         </footer>
     </div>
     <script>
-    Vue.config.devtools = true;
-    new Vue({
-        el: '#app',
-        data: {   
-            shopCartList:[],
-            itemCount:"",
-        },
-        
-        computed:{
-            showNum(){
-                this.itemCount = this.shopCartList.length;
-                if(this.itemCout == 0){
-                    return false;
-                }else{
-                    return true;
-                }
+        Vue.config.devtools = true;
+        new Vue({
+            el: '#app',
+            data: {   
+                shopCartList:[],
+                itemCount:"",
             },
-        },
-        mounted() {
-            let storage =  JSON.parse(localStorage.getItem("shopCartList"));
-            if(storage==null){
-                this.shopCartList = [];
-                this.itemCount = 0;
-            }else{
-                this.shopCartList = storage;
-                this.itemCount = this.shopCartList.length;
-            }
-        },
-    });
+            methods: {
+                minusNum(index){
+                    if(this.shopCartList[index].count == 1){
+                        this.shopCartList[index].count = 1;
+                        localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                    }else{
+                        this.shopCartList[index].count --;
+                        localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                    }
+                },
+                plusNum(index){
+                    this.shopCartList[index].count ++;
+                    localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                },
+
+                deleteItem(index){
+                    this.shopCartList.splice(index,1);
+                    localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                },
+
+                updateCart(){
+                    let storage =  JSON.parse(localStorage.getItem("shopCartList"));
+                    if(storage==null){
+                        this.shopCartList = [];
+                        this.itemCount = 0;
+                    }else{
+                        this.shopCartList = storage;
+                        this.itemCount = this.shopCartList.length;
+                    }
+                },
+  
+            },
+            computed:{
+                showNum(){
+                    this.itemCount = this.shopCartList.length;
+                    if(this.itemCout == 0){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                },
+
+                total(){
+                    let arr = [];
+                    arr = this.shopCartList.map(item =>{
+                        return this.sum = item.price * item.count
+                    });
+                    return arr.reduce((prev,next)=>{
+                        return prev + next;
+                    })
+                },
+            },
+            mounted() {
+               this.updateCart();
+            },
+        });
     </script>
 </body>
 </html>

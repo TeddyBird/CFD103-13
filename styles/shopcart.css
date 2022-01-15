@@ -1,0 +1,254 @@
+/* 開頭背景圖 */
+.head-banner {
+    width: 100%;
+    height: 30vh;
+  }
+  
+  .head-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+
+/* 購物車區 */
+.shopcart-page{
+  margin: 80px 0;
+}
+
+.shopcart-page .container{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.item-list{
+  position: relative;
+  width:calc(48% - 20px);
+  background-image: url(../picture/background/Kraftpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:0 10px;
+}
+
+.bg-section{
+  width: 100%;
+  height:20px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background-image: url(../picture/background/Kraftpaper2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cart-item{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
+  background-color: rgb(240, 235, 234);
+  border-radius: 10px;
+  position: relative;
+}
+
+.item-list-pic{
+  width: 30%;
+  border-radius: 10px;
+}
+
+.item-list-pic img{
+  width: 100%;
+  vertical-align: bottom;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.item-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+.item-info h3{
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  font-weight: 600;
+}
+
+.counter{
+  display: flex;
+  align-items: center;
+}
+
+.count{
+  display: flex;
+  align-items: center;
+}
+
+.count button{
+  border: none;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.count button:hover{
+  background-color: rgb(101, 80, 70);
+}
+
+
+.count .minus{
+  padding: 2px 8px;
+  border-radius: 8px 0 0 8px;
+}
+
+.count .plus{
+  padding: 2px 6px;
+  border-radius: 0 8px 8px 0;
+}
+
+.count span{
+  width: 50px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid rgb(102, 142, 104);
+  padding: 2.5px;
+  font-size: 18px;
+  color: rgb(101, 80, 70);
+}
+
+.delete{
+  border: none;
+  background-color:rgb(102, 142, 104);
+  color: white;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius:0 10px 0 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.delete:hover{
+  box-shadow: inset 2px -2px  rgba(0,0,0,0.2);
+  background-color:rgb(101, 80, 70);
+}
+
+.total-section{
+  width: calc(48% - 44px);
+  border: 2px solid rgb(101, 80, 70);
+  background-color:rgb(240, 235, 234) ;
+  padding: 20px;
+  align-self: flex-start;
+  position: sticky;
+  top: 150px;
+}
+
+.item-sum{
+  border-bottom: 1px solid rgb(101, 80, 70);
+}
+
+.total-section h2{
+  font-size: 28px;
+  color: rgb(101, 80, 70);
+  font-weight: 600;
+  padding:10px 0;
+  border-bottom: 2px solid rgb(101, 80, 70);
+}
+
+.item-sum-info{
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-sum-info h3{
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  font-weight: 600;
+}
+
+.item-sum-info span{
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+}
+
+.sum{
+  display: block;
+  font-size: 20px;
+  color: rgb(101, 80, 70);
+  font-weight: 600;
+  text-align: right;
+  padding:10px 0;
+}
+
+.total{
+  display: block;
+  font-size: 24px;
+  color: rgb(101, 80, 70);
+  font-weight: 600;
+  text-align: right;
+  padding:30px 0;
+}
+
+.total-section button{
+  border: none;
+  width: 50%;
+  margin: 0 0 0 auto;
+  padding: 5px 0;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+}
+
+.total-section button:hover{
+  background-color: rgb(101, 80, 70);
+}
+
+@media screen and (max-width:768px){
+  .shopcart-page .container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-list{
+    width: calc(95% - 20px);
+    margin: auto;
+  }
+
+  .total-section{
+    width:calc(95% - 44px);
+    align-self: flex-start;
+    position: static;
+    margin: 30px auto 0;
+  }
+}
+
+@media screen and (max-width:375px){
+  .delete{
+    border: none;
+    background-color:rgb(102, 142, 104);
+    color: white;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    border-radius:0 10px 0 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+}

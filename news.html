@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/news.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js" integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Bread&Butter烘焙坊 | 最新消息</title>
 </head>
 <body>
-    <!-- header區域 -->
+    <div id="app">
+         <!-- header區域 -->
     <input type="checkbox" id="menu_control">
     <header>
         <h1 class="logo">
@@ -50,9 +52,9 @@
             </ul>
             <div class="nav-icon">
                 <a href="./login.html"><i class="fas fa-user"></i></a>
-                <a href="#">
+                <a href="./shopcart.html">
                     <i class="fas fa-shopping-cart"></i>
-                    <div class="shopcart-alert">0</div>
+                    <div class="shopcart-alert" v-if="showNum">{{itemCount}}</div>
                 </a>
             </div>
         </nav>
@@ -170,5 +172,37 @@
             <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
         </div>       
     </footer>
+    </div>
+    <script>
+        Vue.config.devtools = true;
+        new Vue({
+            el: '#app',
+            data: {   
+                shopCartList:[],
+                itemCount:"",
+            },
+            
+            computed:{
+                showNum(){
+                    this.itemCount = this.shopCartList.length;
+                    if(this.itemCout == 0){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                },
+            },
+            mounted() {
+                let storage =  JSON.parse(localStorage.getItem("shopCartList"));
+                if(storage==null){
+                    this.shopCartList = [];
+                    this.itemCount = 0;
+                }else{
+                    this.shopCartList = storage;
+                    this.itemCount = this.shopCartList.length;
+                }
+            },
+        });
+    </script>
 </body>
 </html>

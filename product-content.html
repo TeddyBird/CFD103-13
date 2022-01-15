@@ -14,64 +14,65 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/product-content.css">
-    <script src="./JS/product-content.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js" integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./JS/product-content.js"></script>
     <title>Bread&Butter烘焙坊 | 商品內容</title>
 </head>
-<>
-    <!-- header區域 -->
-    <input type="checkbox" id="menu_control">
-    <header>
-        <h1 class="logo">
-            <a href="./index.html">
-                <img src="./picture/logo/logo02.png" alt="Bread&Butter">
-            </a>
-        </h1>
-
-        <!-- 漢堡 -->
-        <label for="menu_control" class="menu_btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <nav>
-            <ul class="first-nav">
-                <li><a href="./news.html">最新消息</a></li>
-                <li>
-                    <a href="./products.html" class="checkable">商品專區</a>
-                    <input type="checkbox" id="check_list">
-                    <label for="check_list" class="list_btn"></label>
-                    <ul class="second-nav">
-                        <li><a href="./products.html">麵包系列</a></li>
-                        <li><a href="./products.html">蛋糕系列</a></li>
-                        <li><a href="./products.html">手工餅乾</a></li>
-                    </ul>
-                </li>
-                <li><a href="./about.html">關於我們</a></li>
-                <li><a href="./contact.html">聯絡我們</a></li>
-            </ul>
-            <div class="nav-icon">
-                <a href="./login.html"><i class="fas fa-user"></i></a>
-                <a class="shopcart-icon" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="shopcart-alert">0</div>
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- 開頭背景圖 -->
-    <div class="head-banner">
-        <img src="./picture/banner/banner2.jpg" alt="banner">
-    </div>
+<body>
     <div id="app" v-if="currentItem.id">
+    <!-- header區域 -->
+        <input type="checkbox" id="menu_control">
+        <header>
+            <h1 class="logo">
+                <a href="./index.html">
+                    <img src="./picture/logo/logo02.png" alt="Bread&Butter">
+                </a>
+            </h1>
+
+            <!-- 漢堡 -->
+            <label for="menu_control" class="menu_btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav>
+                <ul class="first-nav">
+                    <li><a href="./news.html">最新消息</a></li>
+                    <li>
+                        <a href="./products.html" class="checkable">商品專區</a>
+                        <input type="checkbox" id="check_list">
+                        <label for="check_list" class="list_btn"></label>
+                        <ul class="second-nav">
+                            <li><a href="./products.html">麵包系列</a></li>
+                            <li><a href="./products.html">蛋糕系列</a></li>
+                            <li><a href="./products.html">手工餅乾</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./about.html">關於我們</a></li>
+                    <li><a href="./contact.html">聯絡我們</a></li>
+                </ul>
+                <div class="nav-icon">
+                    <a href="./login.html"><i class="fas fa-user"></i></a>
+                    <a href="./shopcart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="shopcart-alert" v-if="showNum">{{itemCount}}</div>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 開頭背景圖 -->
+        <div class="head-banner">
+            <img src="./picture/banner/banner2.jpg" alt="banner">
+        </div>
         <!-- 商品內容主要頁面 -->
         <main class="product-content-page">         
             <div class="breadcrumb">
                 <ol>
                     <li><a href="./index.html">首頁</a></li>
                     <li><a href="./products.html">商品專區</a></li>
-                    <li><a href="#">法式麵包</a></li>
+                    <li><a href="#">{{currentItem.category2}}</a></li>
                 </ol>
             </div>
             <section class="product-content">
@@ -107,12 +108,12 @@
                                 <div class="counter">
                                     <p>數量</p>
                                     <div class="counter-bar">
-                                        <button class="minus-btn">-</button>
-                                        <input type="txt" value="1">
-                                        <button class="plus-btn">+</button>
+                                        <button class="minus-btn" @click="minusItem">-</button>
+                                        <input type="txt" :value="buyNum">
+                                        <button class="plus-btn" @click="plusItem">+</button>
                                     </div>
                                 </div>
-                                <button class="buybtn"><i class="fas fa-shopping-cart"></i>加入購物車</button>
+                                <button class="buybtn" @click="addShopCart"><i class="fas fa-shopping-cart"></i>加入購物車</button>
                             </div>
                         </div>
                     </div>
@@ -151,211 +152,65 @@
                 </ul>
             </div>
         </section>
-    </div>
-
-    <!-- footer區域 -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="footer-list">
-                        <ul>
-                            <li><a href="./news.html">最新消息</a></li>
-                            <li><a href="./products.html">商品專區</a></li>
-                            <li><a href="./about.html">關於我們</a></li>
-                            <li><a href="./contact.html">聯絡我們</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 ">
-                    <div class="footer-logo">
-                        <img src="./picture/logo/logo.png" alt="logo">
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="footer-info">
-                        <div class="address">台北市中山區南京東路三段219號</div>
-                        <div class="service-time">營業時間   10:00~20:00  周一公休</div>
-                        <div class="tel">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>02-27120589</span>
-                        </div>
-                        <div class="email">
-                            <i class="fas fa-envelope"></i>
-                            <p>breadnbutter@gmail.com</p>
-                        </div>
-                    </div>    
-                </div>
+        <div class ="buy-alert" v-if="buyAlert">
+            <p>此商品已加入購物車，請問是否要更改數量?</p>
+            <div class=" btn-zone">
+                <button @click="noChangeNum">否</button>
+                <button @click="changNum">是</button>
             </div>
         </div>
-        <div class="copyright">
-            <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
-        </div>       
-    </footer>
 
+        <!-- footer區域 -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="./news.html">最新消息</a></li>
+                                <li><a href="./products.html">商品專區</a></li>
+                                <li><a href="./about.html">關於我們</a></li>
+                                <li><a href="./contact.html">聯絡我們</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 ">
+                        <div class="footer-logo">
+                            <img src="./picture/logo/logo.png" alt="logo">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="footer-info">
+                            <div class="address">台北市中山區南京東路三段219號</div>
+                            <div class="service-time">營業時間   10:00~20:00  周一公休</div>
+                            <div class="tel">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>02-27120589</span>
+                            </div>
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                <p>breadnbutter@gmail.com</p>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>copy&reg;by TedYang<br>此網站僅供練習使用</p>
+            </div>       
+        </footer>
+    </div>
     <script>
         Vue.config.devtools = true;
         new Vue({
         el: '#app',
         data: {  
             currentItem:{},
-            products:[
-               {
-                   id:1,
-                   name:"法國長棍",
-                   category:"麵包",
-                   category2:"法式麵包",
-                   hotSale:true,
-                   vegan: true,
-                   ingredient:"麵粉、鹽、酵母、水",
-                   preserve:"常溫3天，冷凍14天",
-                   content:"法國傳統長棍麵包，保留小麥原味，外皮的酥脆、氣孔及溼度都考驗著烘焙師的技術。",
-                   nutrition:"./picture/nutrition/product-nutrition01.jpg",
-                   price:100,
-                   img:["./picture/product/product01.jpg","./picture/product/product01-2.jpg"],
-               },
-               {
-                   id:2,
-                   name:"法式可可",
-                   category:"麵包",
-                   category2:"法式麵包",
-                   hotSale:true,
-                   vegan: true,
-                   ingredient:"麵粉、鹽、酵母、水、可可粉、水滴巧克力",
-                   preserve:"冷藏2天、冷凍14天",
-                   content:"香濃淡甜的法國可可風味，可讓初嚐歐法外脆內Q麵包者開始嚐鮮入門。",
-                   nutrition:"./picture/nutrition/product-nutrition02.jpg",
-                   price:90,
-                   img:["./picture/product/product02.jpg","./picture/product/product02-2.jpg"],
-               },
-               {
-                   id:3,
-                   name:"黑麥鄉村麵包",
-                   category:"麵包",
-                   category2:"歐式麵包",
-                   hotSale:true,
-                   vegan: true,
-                   ingredient:"麵粉、德國烘烤過大麥芽粉、葡萄乾、核桃",
-                   preserve:"冷藏2天、冷凍14天",
-                   content:"精選德國烘烤過的大麥芽粉，具有其特殊香氣與天然深色澤。",
-                   nutrition:"./picture/nutrition/product-nutrition03.jpg",
-                   price:85,
-                   img:["./picture/product/product03.jpg"],
-               },
-               {
-                   id:4,
-                   name:"黑麥穀物核桃吐司",
-                   category:"麵包",
-                   category2:"歐式麵包",
-                   hotSale:false,
-                   vegan: true,
-                   ingredient:"德國黑麥穀物粉、核桃、英國切達乳酪絲",
-                   preserve:"冷藏2天、冷凍14天",
-                   content:"採用德國進口黑麥穀物粉，加入高比例核桃及七種穀類。麵團不加一滴水，使用多達43%鮮奶，表皮烘烤至脆感、內部及其柔軟，營造多層次口感。",
-                   nutrition:"./picture/nutrition/product-nutrition04.jpg",
-                   price:70,
-                   img:["./picture/product/product04.jpg"],
-               },
-               {
-                   id:5,
-                   name:"法式巴西里蒜",
-                   category:"麵包",
-                   category2:"法式麵包",
-                   hotSale:false,
-                   vegan: false,
-                   ingredient:"自製大蒜醬、巴西里葉",
-                   preserve:"冷藏2天、冷凍14天",
-                   content:"巴西里香草搭配自製大蒜醬。",
-                   nutrition:"./picture/nutrition/product-nutrition05.jpg",
-                   price:100,
-                   img:["./picture/product/product05.jpg","./picture/product/product05-2.jpg"],
-               },
-               {
-                   id:6,
-                   name:"歐式蔓越莓核桃",
-                   category:"麵包",
-                   category2:"歐式麵包",
-                   hotSale:true,
-                   vegan: true,
-                   ingredient:"蔓越莓、核桃、老麵",
-                   preserve:"冷藏2天、冷凍14天",
-                   content:"獨家歐式老麵糰，表皮具韌度、麵心富有嚼勁，麥香混合乾果和堅果酥脆香。",
-                   nutrition:"./picture/nutrition/product-nutrition06.jpg",
-                   price:95,
-                   img:["./picture/product/product06.jpg","./picture/product/product06-2.jpg"],
-               },
-               {
-                   id:7,
-                   name:"檸檬重乳酪條",
-                   category:"蛋糕",
-                   category2:"長條蛋糕",
-                   hotSale:true,
-                   vegan: false,
-                   ingredient:"台產無毒綠檸檬、澳洲Cream Cheese",
-                   preserve:"冷藏3天",
-                   content:"以在地整顆檸檬﹐含綠皮磨屑﹐檸檬原汁拌入天然乳酪﹐搭配手工自製餅乾底﹐酸甜綿密，讓人一口接一口的人氣點心！",
-                   nutrition:"./picture/nutrition/product-nutrition07.jpg",
-                   price:95,
-                   img:["./picture/product/product07.jpg"],
-               },
-               {
-                   id:8,
-                   name:"伯爵茶蘋果磅蛋糕",
-                   category:"蛋糕",
-                   category2:"長條蛋糕",
-                   hotSale:false,
-                   vegan: true,
-                   ingredient:"伯爵紅茶、天然發酵奶油、動物性鮮奶油、蘋果",
-                   preserve:"常溫7天",
-                   content:"傳統磅蛋糕的單純風味，加入斯里蘭卡伯爵紅茶與手炒蜜蘋果，茶香融入奶油、濃醇蛋香，口感清甜綿密。",
-                   nutrition:"./picture/nutrition/product-nutrition08.jpg",
-                   price:120,
-                   img:["./picture/product/product08.jpg","./picture/product/product08-2.jpg"],
-               },
-               {
-                   id:9,
-                   name:"完熟乳酪",
-                   category:"蛋糕",
-                   category2:"圓形蛋糕",
-                   hotSale:false,
-                   vegan: true,
-                   ingredient:"乳酪、天然鮮奶油",
-                   preserve:"冷藏3天",
-                   content:"完全不含小麥麵粉，並以自然食材與乳酪完全融合呈現，色香味最佳的完熟狀態、雲朵般綿密的口感。",
-                   nutrition:"./picture/nutrition/product-nutrition09.jpg",
-                   price:150,
-                   img:["./picture/product/product09.jpg","./picture/product/product09-2.jpg"],
-               },
-               {
-                   id:10,
-                   name:"完桂圓燕麥餅",
-                   category:"餅乾",
-                   category2:"餅乾",
-                   hotSale:false,
-                   vegan: true,
-                   ingredient:"龍眼乾、燕麥",
-                   preserve:"常溫60天",
-                   content:"手作餅乾加入燕麥片和核桃，多層次的口感伴隨桂圓乾香氣，搭配咖啡、茶品一起享用，是最幸福的享受。",
-                   nutrition:"./picture/nutrition/product-nutrition10.jpg",
-                   price:150,
-                   img:["./picture/product/product10.png"],
-               },
-               {
-                   id:11,
-                   name:"小可頌",
-                   category:"麵包",
-                   category2:"丹麥可頌",
-                   hotSale:false,
-                   vegan: true,
-                   ingredient:"蛋、奶油",
-                   preserve:"冷藏2天、冷凍14天​",
-                   content:"18層丹麥麵糰推疊出香脆酥皮。",
-                   nutrition:"./picture/nutrition/product-nutrition11.jpg",
-                   price:20,
-                   img:["./picture/product/product11.jpg","./picture/product/product11-2.jpg"],
-               },
-           ],
-              
+            products:[],  
+            buyNum: 1,
+            shopCartList:[],
+            buyAlert: false,
+            itemCount:"",
         },
         
         computed:{
@@ -373,13 +228,94 @@
                 }
                 return arr2;
             },
+
+            showNum(){
+                this.itemCount = this.shopCartList.length;
+                if(this.itemCout == 0){
+                    return false;
+                }else{
+                    return true;
+                }
+            },
+
+
+        },
+
+        methods: {
+            getData(Id){
+                axios.get("./products.json")
+                .then((res)=>{
+                    this.products = res.data;
+                    for(let i = 0; i<res.data.length;i++){
+                        if(res.data[i].id == Id){
+                            this.currentItem = res.data[i];
+                            this.currentItem = Object.assign({}, this.currentItem, {count: 1});
+                        }
+                    }
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            },
+
+            plusItem(){
+                this.buyNum ++;
+                this.currentItem.count++;
+            },
+
+            minusItem(){
+                if(this.buyNum == 1){
+                    this.buyNum = 1;
+                    this.currentItem.count = 1;
+                }else{
+                    this.buyNum --;
+                    this.currentItem.count --;
+                }
+            },
+
+            addShopCart(){
+                let index = this.shopCartList.findIndex(item=> item.id == this.currentItem.id);
+                if(index == -1){
+                    this.shopCartList.push(this.currentItem);
+                    localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                    this.buyNum = 1;
+                    this.currentItem.count = 1;
+                    this.showNum;
+                }else{
+                    this.buyAlert = true;
+                }
+            },
+
+            changNum(){
+                let index = this.shopCartList.findIndex(item=> item.id == this.currentItem.id);
+                this.shopCartList[index].count = this.currentItem.count;
+                localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                this.buyAlert= false;
+                this.buyNum = 1;
+                this.currentItem.count = 1;
+            },
+
+            noChangeNum(){
+                this.buyAlert = false;
+                this.buyNum = 1;
+                this.currentItem.count = 1;
+            },
         },
         mounted() {
             let Id=location.search.slice(1).split("=")[1];
-            this.currentItem = this.products[(Id-1)];
+            // this.currentItem = this.products[(Id-1)];
+            this.getData(Id);
+
+            let storage =  JSON.parse(localStorage.getItem("shopCartList"));
+            if(storage==null){
+                this.shopCartList = [];
+                this.itemCount = 0;
+            }else{
+                this.shopCartList = storage;
+                this.itemCount = this.shopCartList.length;
+            }
         },
        
     });
-</script>
+    </script>
 </body>
 </html>
