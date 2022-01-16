@@ -447,6 +447,11 @@ button.buybtn:hover {
   color: rgb(101, 80, 70);
 }
 
+.buy-alert p span{
+  color: rgb(185, 142, 81);
+  font-weight: 600;
+}
+
 .buy-alert .btn-zone{
   display: flex;
   justify-content: space-around;
@@ -455,6 +460,41 @@ button.buybtn:hover {
 }
 
 .buy-alert .btn-zone button{
+  font-size: 18px;
+  background-color: rgb(102, 142, 104);
+  color: white;
+  border: none;
+  padding: 2px 15px;
+  display: inline-block;
+}
+
+.add-alert{
+  position: fixed;
+  z-index: 50;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50% , 0px);
+  border: 1px solid rgb(101, 80, 70);
+  background-color: rgb(240, 235, 234);
+  padding: 20px;
+  animation: fade 0.8s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-alert p{
+  font-size: 20px;
+  margin:0 0 20px ;
+  color: rgb(101, 80, 70);
+}
+
+.add-alert p span{
+  color: rgb(185, 142, 81);
+  font-weight: 600;
+}
+
+.add-alert button{
   font-size: 18px;
   background-color: rgb(102, 142, 104);
   color: white;

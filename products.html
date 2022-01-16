@@ -68,10 +68,6 @@
     </div>
 
     <!-- 商品專區頁面 -->
-    <div class="add-alert" v-if="cartAlert">
-        <p><span>{{cartAlertName}}</span> 已經加入購物車囉!</p>
-        <button @click="cartAlert = false">確認</button>
-    </div>
     <main class="products-page">
         <div class="top-title">
             <h2>商品專區</h2>
@@ -151,6 +147,10 @@
             </div>
         </div>
     </main>
+    <div class="add-alert" v-if="cartAlert">
+        <p><span>{{cartAlertName}}</span> 已經加入購物車囉!</p>
+        <button @click="cartAlert = false">確認</button>
+    </div>
 
     <!-- footer區域 -->
     <footer>
@@ -208,7 +208,6 @@
             methods: {
                 addCart(id,idx,name){
                     let index = this.shopCartList.findIndex(item=> item.id == id);
-                    console.log(index);
                     if(index == -1){
                         this.shopCartList.push(this.filter[idx]);
                         localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
@@ -217,8 +216,6 @@
                         this.cartAlertName = name;
                     }
                 }
-
-
             },
 
             computed:{
@@ -256,7 +253,7 @@
                 },
                 showNum(){
                     this.itemCount = this.shopCartList.length;
-                    if(this.itemCout == 0){
+                    if(this.itemCount == 0){
                         return false;
                     }else{
                         return true;
@@ -269,7 +266,6 @@
                 .then((res)=>{
                     this.products = res.data;
                     this.products.forEach(item => item.count = 1);
-                    console.log(this.products);
                 }).catch((err)=>{
                     console.log(err);
                 })

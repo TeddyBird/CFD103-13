@@ -113,7 +113,7 @@
                                         <button class="plus-btn" @click="plusItem">+</button>
                                     </div>
                                 </div>
-                                <button class="buybtn" @click="addShopCart"><i class="fas fa-shopping-cart"></i>加入購物車</button>
+                                <button class="buybtn" @click="addShopCart(currentItem.name)"><i class="fas fa-shopping-cart"></i>加入購物車</button>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                                     <a  class="detail" :href="`./product-content.html?id=${item.id}`">
                                         <i class="fas fa-search"></i>
                                     </a>
-                                    <a class="shopping-cart" href="#">
+                                    <a class="shopping-cart" href="#" @click.prevent=" addCart(item.id,index,item.name)">
                                         <i class="fas fa-shopping-cart"></i>
                                     </a>
                                 </div>
@@ -153,11 +153,15 @@
             </div>
         </section>
         <div class ="buy-alert" v-if="buyAlert">
-            <p>此商品已加入購物車，請問是否要更改數量?</p>
+            <p><span>{{alertItem}}</span> 已加入購物車，請問是否要更改數量?</p>
             <div class=" btn-zone">
                 <button @click="noChangeNum">否</button>
                 <button @click="changNum">是</button>
             </div>
+        </div>
+        <div class="add-alert" v-if="cartAlert">
+            <p><span>{{cartAlertName}}</span> 已經加入購物車囉!</p>
+            <button @click="cartAlert = false">確認</button>
         </div>
 
         <!-- footer區域 -->
@@ -210,7 +214,10 @@
             buyNum: 1,
             shopCartList:[],
             buyAlert: false,
+            alertItem:"",
             itemCount:"",
+            cartAlert:false,
+            cartAlertName:"",
         },
         
         computed:{
@@ -226,12 +233,13 @@
                     arr2.push(arr[i]);
                     }
                 }
+                arr2.forEach(item => item.count = 1);
                 return arr2;
             },
 
             showNum(){
                 this.itemCount = this.shopCartList.length;
-                if(this.itemCout == 0){
+                if(this.itemCount == 0){
                     return false;
                 }else{
                     return true;
@@ -272,7 +280,7 @@
                 }
             },
 
-            addShopCart(){
+            addShopCart(name){
                 let index = this.shopCartList.findIndex(item=> item.id == this.currentItem.id);
                 if(index == -1){
                     this.shopCartList.push(this.currentItem);
@@ -282,6 +290,7 @@
                     this.showNum;
                 }else{
                     this.buyAlert = true;
+                    this.alertItem = name;
                 }
             },
 
@@ -298,6 +307,17 @@
                 this.buyAlert = false;
                 this.buyNum = 1;
                 this.currentItem.count = 1;
+            },
+
+            addCart(id,idx,name){
+                let index = this.shopCartList.findIndex(item=> item.id == id);
+                if(index == -1){
+                    this.shopCartList.push(this.relativeItem[idx]);
+                    localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                }else{
+                    this.cartAlert = true;
+                    this.cartAlertName = name;
+                }
             },
         },
         mounted() {
