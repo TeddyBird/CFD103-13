@@ -376,7 +376,6 @@
             shopCartList:[],
             itemCount:"",
         },
-        
         computed:{
             showNum(){
                 this.itemCount = this.shopCartList.length;
@@ -389,7 +388,7 @@
         },
         mounted() {
             let storage =  JSON.parse(localStorage.getItem("shopCartList"));
-            if(storage==null){
+            if(storage == null){
                 this.shopCartList = [];
                 this.itemCount = 0;
             }else{

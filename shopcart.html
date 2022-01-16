@@ -65,6 +65,7 @@
         <main class="shopcart-page">
             <div class="container">
                 <div class="item-list">
+                    <p v-if="itemCount == 0">您的購物車還未有商品，請前往<a href="./products.html">商品專區</a>選購~</p>
                     <div class="bg-section"></div>
                     <div class="cart-item" v-for="(item, index) in shopCartList"
                     :key="item.id"
@@ -194,12 +195,16 @@
 
                 total(){
                     let arr = [];
-                    arr = this.shopCartList.map(item =>{
+                    if(this.itemCount > 0){
+                        arr = this.shopCartList.map(item =>{
                         return this.sum = item.price * item.count
-                    });
-                    return arr.reduce((prev,next)=>{
-                        return prev + next;
-                    })
+                        });
+                        return arr.reduce((prev,next)=>{
+                            return prev + next;
+                        })
+                    }else{
+                        return 0;
+                    }
                 },
             },
             mounted() {

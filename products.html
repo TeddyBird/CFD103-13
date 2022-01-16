@@ -68,6 +68,10 @@
     </div>
 
     <!-- 商品專區頁面 -->
+    <div class="add-alert" v-if="cartAlert">
+        <p><span>{{cartAlertName}}</span> 已經加入購物車囉!</p>
+        <button @click="cartAlert = false">確認</button>
+    </div>
     <main class="products-page">
         <div class="top-title">
             <h2>商品專區</h2>
@@ -131,7 +135,7 @@
                                         <a  class="detail" :href="`./product-content.html?id=${item.id}`">
                                             <i class="fas fa-search"></i>
                                         </a>
-                                        <a class="shopping-cart" href="#">
+                                        <a class="shopping-cart" href="#" @click.prevent="addCart(item.id,index,item.name)">
                                             <i class="fas fa-shopping-cart"></i>
                                         </a>
                                     </div>
@@ -198,7 +202,25 @@
                 products:null,
                 shopCartList:[],
                 itemCount:"",
+                cartAlert:false,
+                cartAlertName:"",
             },
+            methods: {
+                addCart(id,idx,name){
+                    let index = this.shopCartList.findIndex(item=> item.id == id);
+                    console.log(index);
+                    if(index == -1){
+                        this.shopCartList.push(this.filter[idx]);
+                        localStorage.setItem("shopCartList", JSON.stringify(this.shopCartList));
+                    }else{
+                        this.cartAlert = true;
+                        this.cartAlertName = name;
+                    }
+                }
+
+
+            },
+
             computed:{
                 filter(){
                     if(this.showItem == "全部"){
@@ -245,8 +267,9 @@
             mounted() {
                 axios.get("./products.json")
                 .then((res)=>{
-                    // console.log(res);
                     this.products = res.data;
+                    this.products.forEach(item => item.count = 1);
+                    console.log(this.products);
                 }).catch((err)=>{
                     console.log(err);
                 })
